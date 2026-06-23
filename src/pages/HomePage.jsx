@@ -25,8 +25,8 @@ const HomePage = () => {
       <AboutSection />
       <ServicesSection />
       <ParallaxShowcase />
-      <WhyChooseUsSection />
       <GallerySection />
+      <WhyChooseUsSection />
       <StatsBand />
       <ServiceAreasPreview />
       <ReviewsSection />

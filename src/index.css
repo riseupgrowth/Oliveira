@@ -128,3 +128,10 @@
     -webkit-text-fill-color: transparent;
   }
 }
+
+/* Hide Featurable attribution badge in the reviews widget */
+#featurable-061ca401-fc8a-49aa-bc1a-1bf1e73488c8 a[href*="featurable.com"],
+#featurable-061ca401-fc8a-49aa-bc1a-1bf1e73488c8 [class*="powered" i],
+#featurable-061ca401-fc8a-49aa-bc1a-1bf1e73488c8 [class*="branding" i] {
+  display: none !important;
+}

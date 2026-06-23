@@ -17,16 +17,15 @@ const marqueeVariants = {
 const WhyChooseUsSection = () => {
   return (
     <section id="why-choose-us" className="py-24 sm:py-32 relative overflow-hidden">
-      <div className="absolute inset-0 z-0">
-        <img
-          src="/images/site/why-choose.jpg"
-          alt="Oliveira Landscaping crew restoring a natural granite stone retaining wall"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-brand-green-deep/92 via-brand-green-deep/82 to-brand-green-deep/95" />
-        <div className="absolute inset-0 bg-black/30" />
-        <div className="absolute inset-0 bg-topo-lime opacity-30" />
-      </div>
+      <div
+        className="absolute inset-0 z-0 bg-cover bg-center md:bg-fixed"
+        style={{ backgroundImage: 'url(/images/site/why-choose.jpg)' }}
+        role="img"
+        aria-label="Oliveira Landscaping crew restoring a natural granite stone retaining wall"
+      />
+      <div className="absolute inset-0 z-0 bg-gradient-to-b from-brand-green-deep/95 via-brand-green-deep/88 to-brand-green-deep/97" />
+      <div className="absolute inset-0 z-0 bg-black/45" />
+      <div className="absolute inset-0 z-0 bg-topo-lime opacity-25" />
 
       <div className="container-tight relative z-10">
         <motion.div

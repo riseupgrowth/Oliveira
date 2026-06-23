@@ -21,8 +21,8 @@ const ParallaxShowcase = () => {
         style={{ backgroundImage: 'url(/images/site/cta.jpg)' }}
       />
       {/* Readability overlays */}
-      <div className="absolute inset-0 z-0 bg-gradient-to-b from-black/65 via-black/50 to-black/70" />
-      <div className="absolute inset-0 z-0 bg-brand-green-deep/35" />
+      <div className="absolute inset-0 z-0 bg-gradient-to-b from-black/80 via-black/65 to-black/82" />
+      <div className="absolute inset-0 z-0 bg-brand-green-deep/45" />
       <div className="absolute inset-0 z-0 bg-topo-lime opacity-20" />
 
       <div className="container-tight relative z-10 text-center">

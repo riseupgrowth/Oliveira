@@ -14,7 +14,34 @@ const FeaturableWidget = ({ id }) => {
     s.src = 'https://featurable.com/assets/bundle.js';
     s.defer = true; s.charset = 'UTF-8';
     document.body.appendChild(s);
-    return () => { document.body.removeChild(s); };
+
+    // Remove the "Powered by Featurable" attribution badge once the widget renders.
+    const stripBadge = () => {
+      const root = document.getElementById(id);
+      if (!root) return;
+      root.querySelectorAll('a[href*="featurable.com"]').forEach((el) => {
+        const wrap = el.closest('div') || el;
+        wrap.style.display = 'none';
+      });
+      root.querySelectorAll('*').forEach((el) => {
+        if (el.children.length === 0 && /powered by featurable/i.test(el.textContent || '')) {
+          const wrap = el.closest('a, div') || el;
+          wrap.style.display = 'none';
+        }
+      });
+    };
+    const interval = setInterval(stripBadge, 600);
+    const observer = new MutationObserver(stripBadge);
+    const root = document.getElementById(id);
+    if (root) observer.observe(root, { childList: true, subtree: true });
+    const stop = setTimeout(() => clearInterval(interval), 15000);
+
+    return () => {
+      clearInterval(interval);
+      clearTimeout(stop);
+      observer.disconnect();
+      if (s.parentNode) s.parentNode.removeChild(s);
+    };
   }, [id]);
   return <div id={id} data-featurable-async className="w-full" />;
 };

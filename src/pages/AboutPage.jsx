@@ -10,7 +10,8 @@ import PageHero from '@/components/PageHero';
 import CallToAction from '@/components/CallToAction';
 import StatsBand from '@/components/StatsBand';
 import { Button } from '@/components/ui/button';
-import { BUSINESS } from '@/data/site';
+import ImageCarousel from '@/components/ImageCarousel';
+import { BUSINESS, ABOUT_GALLERY } from '@/data/site';
 
 const VALUES = [
   { icon: Users, title: 'Family-Owned', text: 'A real family business — owner-led, personally accountable, and invested in our neighbors’ homes.' },
@@ -55,7 +56,7 @@ const AboutPage = () => {
             transition={{ duration: 0.7 }}
             className="relative"
           >
-            <img src="/images/site/about.jpg" alt="Premium curb-appeal landscaping by Oliveira Landscaping Construction" className="rounded-3xl shadow-2xl w-full h-[560px] object-cover" />
+            <ImageCarousel images={ABOUT_GALLERY} className="w-full h-[560px]" />
             <div className="absolute -bottom-5 -left-5 bg-white rounded-2xl px-5 py-3 shadow-xl flex items-center gap-2 border border-brand-sand">
               <div className="flex">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />)}</div>
               <span className="font-bold text-brand-green-dark text-sm">5.0 on Google</span>

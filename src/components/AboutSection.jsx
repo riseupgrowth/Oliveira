@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Award, ShieldCheck, Users, Star } from 'lucide-react';
+import ImageCarousel from '@/components/ImageCarousel';
+import { ABOUT_GALLERY } from '@/data/site';
 
 const AboutSection = () => {
   return (
@@ -19,11 +21,7 @@ const AboutSection = () => {
             transition={{ duration: 0.8, ease: 'easeOut' }}
             className="relative"
           >
-            <img
-              className="rounded-3xl shadow-2xl w-full h-[540px] object-cover"
-              alt="Dramatic curb-appeal landscaping with red mulch beds and a crushed-stone driveway by Oliveira Landscaping"
-              src="/images/site/about.jpg"
-            />
+<ImageCarousel images={ABOUT_GALLERY} className="w-full h-[540px]" />
             <div className="absolute -bottom-6 -right-6 bg-brand-green-dark text-white rounded-2xl px-7 py-5 shadow-xl hidden sm:block">
               <p className="font-heading text-4xl font-extrabold leading-none">11+</p>
               <p className="text-sm text-white/80 mt-1">Years Serving<br />the South Shore</p>

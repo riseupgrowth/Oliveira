@@ -165,3 +165,12 @@ export const STATS = [
   { value: 30, suffix: '+', label: 'South Shore Towns Served' },
   { value: 45, suffix: '', label: '5-Star Google Reviews' },
 ];
+
+// Best 5 images used in the auto-rotating About carousel.
+export const ABOUT_GALLERY = [
+  { src: '/images/projects/mulch-driveway-estate/mulch-driveway-estate-04.jpg', alt: 'Dramatic red-mulch curb-appeal transformation by Oliveira Landscaping' },
+  { src: '/images/projects/paver-walkway/paver-walkway-03.jpg', alt: 'Paver walkway and natural stone retaining wall built by Oliveira Landscaping' },
+  { src: '/images/projects/concrete-patio/concrete-patio-02.jpg', alt: 'Backyard concrete patio and outdoor living space at golden hour' },
+  { src: '/images/projects/mulch-driveway-estate/mulch-driveway-estate-05.jpg', alt: 'Boulder accents and sculpted shrubs in fresh red mulch' },
+  { src: '/images/projects/lawn-care/lawn-care-01.jpg', alt: 'Lush, healthy lawn with a paver walkway at a classic South Shore home' },
+];

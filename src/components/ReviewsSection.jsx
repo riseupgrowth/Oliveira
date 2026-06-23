@@ -11,8 +11,8 @@ const FeaturableWidget = ({ id }) => {
   useEffect(() => {
     if (!id) return;
     const s = document.createElement('script');
-    s.src = 'https://featurable.com/assets/js/widget.js';
-    s.async = true;
+    s.src = 'https://featurable.com/assets/bundle.js';
+    s.defer = true; s.charset = 'UTF-8';
     document.body.appendChild(s);
     return () => { document.body.removeChild(s); };
   }, [id]);

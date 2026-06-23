@@ -29,7 +29,7 @@ export const BUSINESS = {
     reviewUrl: 'https://g.page/r/CTxbJdscXwI2EAE/review',
     // Optional: free auto-updating Google reviews via Featurable (https://featurable.com).
     // Create a free widget, paste its ID here, and the live feed turns on automatically.
-    featurableWidgetId: '',
+    featurableWidgetId: 'featurable-061ca401-fc8a-49aa-bc1a-1bf1e73488c8',
   },
   social: {
     instagram: 'https://www.instagram.com/oliveiralandscapingc/',

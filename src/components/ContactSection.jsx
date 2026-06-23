@@ -45,8 +45,9 @@ const ContactSection = ({ showHeader = true }) => {
   };
 
   return (
-    <section id="contact" className="py-24 bg-gray-50">
-      <div className="container-tight">
+    <section id="contact" className="relative py-24 bg-gray-50 overflow-hidden">
+      <div className="absolute inset-0 bg-leaf-soft" />
+      <div className="container-tight relative z-10">
         {showHeader && (
           <motion.div
             initial={{ opacity: 0, y: 30 }}

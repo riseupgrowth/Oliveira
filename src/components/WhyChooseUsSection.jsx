@@ -24,6 +24,7 @@ const WhyChooseUsSection = () => {
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-brand-green-deep/85" />
+        <div className="absolute inset-0 bg-topo-lime opacity-50" />
       </div>
 
       <div className="container-tight relative z-10">

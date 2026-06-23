@@ -16,6 +16,7 @@ const ServicesSection = () => {
     >
       <div className="absolute top-0 left-0 -translate-x-1/3 -translate-y-1/3 w-96 h-96 bg-white/10 rounded-full" />
       <div className="absolute bottom-0 right-0 translate-x-1/4 translate-y-1/4 w-[50rem] h-[50rem] border-4 border-white/10 rounded-full" />
+      <div className="absolute inset-0 bg-topo-dark opacity-60" />
 
       <div className="container-tight relative z-10">
         <motion.div

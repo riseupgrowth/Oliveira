@@ -2,13 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { Award, ShieldCheck, Clock } from 'lucide-react';
+import { Award, ShieldCheck, Users, Star } from 'lucide-react';
 
 const AboutSection = () => {
   return (
     <section id="about" className="relative py-24 overflow-hidden bg-white">
-      <div className="absolute top-0 left-0 -translate-x-1/3 -translate-y-1/3 w-96 h-96 bg-brand-cream rounded-full" />
-      <div className="absolute bottom-0 right-0 translate-x-1/4 translate-y-1/4 w-[50rem] h-[50rem] border-4 border-gray-100 rounded-full" />
+      <div className="absolute inset-0 bg-leaf-soft" />
+      <div className="absolute top-0 right-0 translate-x-1/3 -translate-y-1/3 w-[40rem] h-[40rem] bg-brand-cream rounded-full opacity-70" />
 
       <div className="container-tight relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -20,13 +20,17 @@ const AboutSection = () => {
             className="relative"
           >
             <img
-              className="rounded-3xl shadow-2xl w-full h-[520px] object-cover"
+              className="rounded-3xl shadow-2xl w-full h-[540px] object-cover"
               alt="Dramatic curb-appeal landscaping with red mulch beds and a crushed-stone driveway by Oliveira Landscaping"
               src="/images/site/about.jpg"
             />
             <div className="absolute -bottom-6 -right-6 bg-brand-green-dark text-white rounded-2xl px-7 py-5 shadow-xl hidden sm:block">
-              <p className="font-heading text-4xl font-extrabold leading-none">6+</p>
+              <p className="font-heading text-4xl font-extrabold leading-none">11+</p>
               <p className="text-sm text-white/80 mt-1">Years Serving<br />the South Shore</p>
+            </div>
+            <div className="absolute -top-5 -left-5 bg-white rounded-2xl px-5 py-3 shadow-xl hidden sm:flex items-center gap-2 border border-brand-sand">
+              <div className="flex">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />)}</div>
+              <span className="font-bold text-brand-green-dark text-sm">5.0 · 45 reviews</span>
             </div>
           </motion.div>
 
@@ -37,33 +41,32 @@ const AboutSection = () => {
             transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
           >
             <span className="eyebrow">About Oliveira</span>
-            <h2 className="section-title mt-3 mb-6">Craftsmanship You Can See — and Trust</h2>
+            <h2 className="section-title mt-3 mb-6">A Family Name You Can Build On</h2>
             <div className="space-y-4 text-lg text-gray-700 leading-relaxed">
               <p>
-                Oliveira Landscaping Construction brings over six years of hands-on experience transforming
-                outdoor spaces across Boston&apos;s South Shore. Our licensed and insured crews specialize in
-                landscaping, hardscape, and custom outdoor living — delivering results that are reliable,
-                durable, and beautifully finished.
+                For over <strong>11 years</strong>, Oliveira Landscaping Construction has been a
+                family-owned, owner-operated company transforming properties across Boston&apos;s South Shore.
+                We&apos;re fully <strong>licensed and insured</strong> — and we treat every yard as if it were our own.
               </p>
               <p>
-                From paver patios and natural-stone retaining walls to fresh garden beds and seasonal
-                maintenance, we treat every property as if it were our own — with care, professionalism,
-                and a relentless attention to detail.
+                We&apos;re committed to one thing above all: <strong>results you can be proud of</strong>. From
+                paver patios and natural-stone retaining walls to lush lawns and complete outdoor living spaces,
+                our crews show up on time, communicate clearly, and never cut corners.
               </p>
             </div>
 
             <div className="mt-8 grid sm:grid-cols-3 gap-5">
               <div className="flex items-center gap-3 text-brand-green-dark">
-                <Award className="w-8 h-8" />
-                <span className="font-bold font-heading">High-Quality Work</span>
+                <Users className="w-8 h-8" />
+                <span className="font-bold font-heading">Family-Owned</span>
               </div>
               <div className="flex items-center gap-3 text-brand-green-dark">
                 <ShieldCheck className="w-8 h-8" />
                 <span className="font-bold font-heading">Licensed &amp; Insured</span>
               </div>
               <div className="flex items-center gap-3 text-brand-green-dark">
-                <Clock className="w-8 h-8" />
-                <span className="font-bold font-heading">Reliable &amp; On-Time</span>
+                <Award className="w-8 h-8" />
+                <span className="font-bold font-heading">Results Guaranteed</span>
               </div>
             </div>
 

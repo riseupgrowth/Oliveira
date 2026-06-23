@@ -4,6 +4,7 @@ import { Toaster } from '@/components/ui/toaster';
 import ScrollToTop from '@/components/ScrollToTop';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import FloatingActions from '@/components/FloatingActions';
 import HomePage from '@/pages/HomePage';
 import AboutPage from '@/pages/AboutPage';
 import GalleryPage from '@/pages/GalleryPage';
@@ -27,6 +28,7 @@ function App() {
         </Routes>
       </main>
       <Footer />
+      <FloatingActions />
       <Toaster />
     </div>
   );

@@ -7,6 +7,7 @@ export const BUSINESS = {
   tagline: 'South Shore Landscaping & Hardscape, Done Right',
   phoneDisplay: '+1 (774) 297-3349',
   phoneHref: 'tel:+17742973349',
+  whatsappHref: 'https://wa.me/17742973349',
   email: 'oliveiracorporation2016@gmail.com',
   address: {
     street: '50 Whitman Street',
@@ -17,9 +18,19 @@ export const BUSINESS = {
   },
   region: 'Boston South Shore',
   hours: 'Mon–Sat: 7:00 AM – 6:00 PM',
-  yearsExperience: '6+',
+  yearsExperience: '11',
+  projectsCompleted: '1500',
+  founded: 2014,
   logo: 'https://horizons-cdn.hostinger.com/bf54a58c-e480-4deb-add4-b5097664342a/4f2a0fbc358a73e31d8e28898fcd2c06.png',
   siteUrl: 'https://www.oliveiralandscaping.com',
+  google: {
+    rating: '5.0',
+    reviewCount: 45,
+    reviewUrl: 'https://g.page/r/CTxbJdscXwI2EAE/review',
+    // Optional: free auto-updating Google reviews via Featurable (https://featurable.com).
+    // Create a free widget, paste its ID here, and the live feed turns on automatically.
+    featurableWidgetId: '',
+  },
   social: {
     instagram: 'https://www.instagram.com/oliveiralandscapingc/',
     facebook: '',
@@ -35,7 +46,6 @@ export const NAV_LINKS = [
   { name: 'Contact', to: '/contact' },
 ];
 
-// Towns served, grouped for the Service Areas page.
 export const SERVICE_AREAS = [
   {
     group: 'Core South Shore',
@@ -116,9 +126,9 @@ export const WHY_CHOOSE = [
   { icon: 'Truck', text: 'Fully Equipped Crews' },
   { icon: 'ClipboardList', text: 'Free Detailed Estimates' },
   { icon: 'CalendarCheck', text: 'Reliable Scheduling' },
-  { icon: 'Award', text: '6+ Years of Experience' },
+  { icon: 'Award', text: '11+ Years of Experience' },
   { icon: 'Star', text: 'Satisfaction Guaranteed' },
-  { icon: 'MapPin', text: 'Local South Shore Team' },
+  { icon: 'Home', text: 'Family-Owned & Operated' },
 ];
 
 export const TESTIMONIALS = [
@@ -150,8 +160,8 @@ export const TESTIMONIALS = [
 ];
 
 export const STATS = [
-  { value: '6+', label: 'Years of Experience' },
-  { value: '500+', label: 'Projects Completed' },
-  { value: '30+', label: 'South Shore Towns Served' },
-  { value: '5.0', label: 'Average Google Rating' },
+  { value: 11, suffix: '+', label: 'Years of Experience' },
+  { value: 1500, suffix: '+', label: 'Projects Completed' },
+  { value: 30, suffix: '+', label: 'South Shore Towns Served' },
+  { value: 45, suffix: '', label: '5-Star Google Reviews' },
 ];

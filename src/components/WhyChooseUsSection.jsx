@@ -23,8 +23,9 @@ const WhyChooseUsSection = () => {
           alt="Oliveira Landscaping crew restoring a natural granite stone retaining wall"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-brand-green-deep/85" />
-        <div className="absolute inset-0 bg-topo-lime opacity-50" />
+        <div className="absolute inset-0 bg-gradient-to-b from-brand-green-deep/92 via-brand-green-deep/82 to-brand-green-deep/95" />
+        <div className="absolute inset-0 bg-black/30" />
+        <div className="absolute inset-0 bg-topo-lime opacity-30" />
       </div>
 
       <div className="container-tight relative z-10">
@@ -36,8 +37,8 @@ const WhyChooseUsSection = () => {
           className="text-center mb-12"
         >
           <span className="eyebrow !text-brand-green-lime">The Oliveira Difference</span>
-          <h2 className="font-heading text-4xl md:text-5xl font-bold mb-5 mt-3 text-white">Why Homeowners Choose Us</h2>
-          <p className="text-lg md:text-xl max-w-3xl mx-auto text-gray-200">
+          <h2 className="font-heading text-4xl md:text-5xl font-bold mb-5 mt-3 text-white text-shadow-strong">Why Homeowners Choose Us</h2>
+          <p className="text-lg md:text-xl max-w-3xl mx-auto text-gray-100 text-shadow-soft">
             The right team makes all the difference. We pair real craftsmanship with dependable service
             to deliver outdoor results that exceed expectations — every project, every time.
           </p>
@@ -51,7 +52,7 @@ const WhyChooseUsSection = () => {
             return (
               <div
                 key={index}
-                className="flex-shrink-0 w-[180px] h-[180px] flex flex-col items-center justify-center text-center p-4 mx-3 bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 shadow-lg"
+                className="flex-shrink-0 w-[180px] h-[180px] flex flex-col items-center justify-center text-center p-4 mx-3 bg-brand-green-deep/55 backdrop-blur-md rounded-3xl border border-white/15 shadow-xl"
                 style={{ willChange: 'transform' }}
               >
                 <Icon className="w-11 h-11 text-brand-green-lime mb-3" />

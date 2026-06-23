@@ -13,7 +13,9 @@ const CallToAction = ({
     <section className="py-24 relative overflow-hidden">
       <div className="absolute inset-0 z-0">
         <img src="/images/site/cta.jpg" alt="Finished backyard concrete patio with outdoor seating at golden hour" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-brand-green-deep/85" />
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-green-deep/95 via-brand-green-deep/80 to-brand-green-deep/95" />
+        <div className="absolute inset-0 bg-black/35" />
+        <div className="absolute inset-0 bg-topo-lime opacity-30" />
       </div>
       <div className="container-tight text-center relative z-10">
         <motion.div
@@ -22,8 +24,8 @@ const CallToAction = ({
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
         >
-          <h2 className="font-heading text-4xl md:text-5xl font-bold mb-4 text-white">{title}</h2>
-          <p className="text-lg md:text-xl text-white/85 mb-8 max-w-3xl mx-auto">{subtitle}</p>
+          <h2 className="font-heading text-4xl md:text-5xl font-bold mb-4 text-white text-shadow-strong">{title}</h2>
+          <p className="text-lg md:text-xl text-white/95 mb-8 max-w-3xl mx-auto text-shadow-soft">{subtitle}</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/contact">
               <Button className="bg-white text-brand-green-dark font-bold text-lg px-8 py-6 rounded-full shadow-lg transition-all duration-300 hover:bg-brand-cream transform hover:-translate-y-1 w-full sm:w-auto">

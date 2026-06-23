@@ -1,0 +1,102 @@
+// Auto-generated gallery data. Images live in /public/images/projects/<slug>/
+// Each image: { src (large), thumb, caption, stage }
+
+export const CATEGORIES = ['All', 'Landscaping', 'Hardscape', 'Patios'];
+
+export const PROJECTS = [
+  {
+    slug: 'mulch-driveway-estate',
+    title: 'Estate Mulch, Boulders & Driveway Refresh',
+    category: 'Landscaping',
+    location: 'South Shore, MA',
+    summary: 'A full front-yard refresh for a colonial estate: freshly laid-out beds, premium red mulch, sculpted shrubs, boulder accents, and a clean crushed-stone driveway for dramatic curb appeal.',
+    cover: '/images/projects/mulch-driveway-estate/mulch-driveway-estate-04-thumb.jpg',
+    images: [
+      { src: '/images/projects/mulch-driveway-estate/mulch-driveway-estate-01.jpg', thumb: '/images/projects/mulch-driveway-estate/mulch-driveway-estate-01-thumb.jpg', stage: 'before', caption: 'Driveway layout marked out before garden bed installation', orientation: 'portrait' },
+      { src: '/images/projects/mulch-driveway-estate/mulch-driveway-estate-02.jpg', thumb: '/images/projects/mulch-driveway-estate/mulch-driveway-estate-02-thumb.jpg', stage: 'before', caption: 'Planning and edging the new bed lines along the driveway', orientation: 'portrait' },
+      { src: '/images/projects/mulch-driveway-estate/mulch-driveway-estate-03.jpg', thumb: '/images/projects/mulch-driveway-estate/mulch-driveway-estate-03-thumb.jpg', stage: 'process', caption: 'Crew truck on-site delivering premium red mulch', orientation: 'portrait' },
+      { src: '/images/projects/mulch-driveway-estate/mulch-driveway-estate-04.jpg', thumb: '/images/projects/mulch-driveway-estate/mulch-driveway-estate-04-thumb.jpg', stage: 'after', caption: 'Sweeping curb-appeal transformation with red mulch beds and a crushed-stone driveway', orientation: 'portrait' },
+      { src: '/images/projects/mulch-driveway-estate/mulch-driveway-estate-05.jpg', thumb: '/images/projects/mulch-driveway-estate/mulch-driveway-estate-05-thumb.jpg', stage: 'after', caption: 'Boulder accents and sculpted shrubs set into fresh red mulch', orientation: 'portrait' },
+      { src: '/images/projects/mulch-driveway-estate/mulch-driveway-estate-06.jpg', thumb: '/images/projects/mulch-driveway-estate/mulch-driveway-estate-06-thumb.jpg', stage: 'after', caption: 'Manicured front beds and crushed-stone driveway at a colonial home', orientation: 'portrait' },
+      { src: '/images/projects/mulch-driveway-estate/mulch-driveway-estate-07.jpg', thumb: '/images/projects/mulch-driveway-estate/mulch-driveway-estate-07-thumb.jpg', stage: 'after', caption: 'Full front-yard refresh with defined beds and a tidy lawn', orientation: 'landscape' },
+      { src: '/images/projects/mulch-driveway-estate/mulch-driveway-estate-08.jpg', thumb: '/images/projects/mulch-driveway-estate/mulch-driveway-estate-08-thumb.jpg', stage: 'after', caption: 'Crisp mulch bed edges hugging the driveway curve', orientation: 'portrait' },
+      { src: '/images/projects/mulch-driveway-estate/mulch-driveway-estate-09.jpg', thumb: '/images/projects/mulch-driveway-estate/mulch-driveway-estate-09-thumb.jpg', stage: 'after', caption: 'Layered plantings and clean mulch lines along the front walk', orientation: 'portrait' },
+      { src: '/images/projects/mulch-driveway-estate/mulch-driveway-estate-10.jpg', thumb: '/images/projects/mulch-driveway-estate/mulch-driveway-estate-10-thumb.jpg', stage: 'after', caption: 'Shaped evergreens and red mulch framing the entryway', orientation: 'portrait' },
+      { src: '/images/projects/mulch-driveway-estate/mulch-driveway-estate-11.jpg', thumb: '/images/projects/mulch-driveway-estate/mulch-driveway-estate-11-thumb.jpg', stage: 'after', caption: 'Stone-lined beds flowing toward the front entrance', orientation: 'portrait' },
+      { src: '/images/projects/mulch-driveway-estate/mulch-driveway-estate-12.jpg', thumb: '/images/projects/mulch-driveway-estate/mulch-driveway-estate-12-thumb.jpg', stage: 'after', caption: 'Healthy lawn paired with freshly mulched borders', orientation: 'portrait' },
+      { src: '/images/projects/mulch-driveway-estate/mulch-driveway-estate-13.jpg', thumb: '/images/projects/mulch-driveway-estate/mulch-driveway-estate-13-thumb.jpg', stage: 'after', caption: 'Detailed bed work along the property\'s stone walkway', orientation: 'portrait' },
+      { src: '/images/projects/mulch-driveway-estate/mulch-driveway-estate-14.jpg', thumb: '/images/projects/mulch-driveway-estate/mulch-driveway-estate-14-thumb.jpg', stage: 'after', caption: 'Trimmed shrubs and vibrant mulch beds set into a green lawn', orientation: 'portrait' },
+      { src: '/images/projects/mulch-driveway-estate/mulch-driveway-estate-15.jpg', thumb: '/images/projects/mulch-driveway-estate/mulch-driveway-estate-15-thumb.jpg', stage: 'after', caption: 'Open lawn bordered by sculpted plantings and fresh mulch', orientation: 'landscape' },
+      { src: '/images/projects/mulch-driveway-estate/mulch-driveway-estate-16.jpg', thumb: '/images/projects/mulch-driveway-estate/mulch-driveway-estate-16-thumb.jpg', stage: 'after', caption: 'Clean transition between lawn, mulch bed, and stone', orientation: 'landscape' },
+    ],
+  },
+  {
+    slug: 'paver-walkway',
+    title: 'Woodland Paver Walkway & Stone Wall',
+    category: 'Hardscape',
+    location: 'South Shore, MA',
+    summary: 'A wooded residential lot transformed with an interlocking paver walkway, a curved natural-stone retaining wall, and layered garden beds — from bare graded soil to a polished, welcoming entrance.',
+    cover: '/images/projects/paver-walkway/paver-walkway-03-thumb.jpg',
+    images: [
+      { src: '/images/projects/paver-walkway/paver-walkway-01.jpg', thumb: '/images/projects/paver-walkway/paver-walkway-01-thumb.jpg', stage: 'before', caption: 'Site prepped and graded before the new walkway installation', orientation: 'portrait' },
+      { src: '/images/projects/paver-walkway/paver-walkway-02.jpg', thumb: '/images/projects/paver-walkway/paver-walkway-02-thumb.jpg', stage: 'process', caption: 'Interlocking pavers being laid over a compacted base', orientation: 'portrait' },
+      { src: '/images/projects/paver-walkway/paver-walkway-03.jpg', thumb: '/images/projects/paver-walkway/paver-walkway-03-thumb.jpg', stage: 'after', caption: 'Finished paver walkway with natural stone retaining wall and fresh plantings', orientation: 'portrait' },
+      { src: '/images/projects/paver-walkway/paver-walkway-04.jpg', thumb: '/images/projects/paver-walkway/paver-walkway-04-thumb.jpg', stage: 'after', caption: 'Curved stone retaining wall framing the new walkway and garden beds', orientation: 'portrait' },
+      { src: '/images/projects/paver-walkway/paver-walkway-05.jpg', thumb: '/images/projects/paver-walkway/paver-walkway-05-thumb.jpg', stage: 'after', caption: 'New mulched garden beds lining the driveway approach', orientation: 'portrait' },
+      { src: '/images/projects/paver-walkway/paver-walkway-06.jpg', thumb: '/images/projects/paver-walkway/paver-walkway-06-thumb.jpg', stage: 'after', caption: 'Paver pathway winding through freshly landscaped beds', orientation: 'portrait' },
+      { src: '/images/projects/paver-walkway/paver-walkway-07.jpg', thumb: '/images/projects/paver-walkway/paver-walkway-07-thumb.jpg', stage: 'after', caption: 'Completed walkway with crisp edging and clean lines', orientation: 'portrait' },
+      { src: '/images/projects/paver-walkway/paver-walkway-08.jpg', thumb: '/images/projects/paver-walkway/paver-walkway-08-thumb.jpg', stage: 'after', caption: 'Oliveira Landscaping crew truck on-site at the finished walkway project', orientation: 'portrait' },
+    ],
+  },
+  {
+    slug: 'concrete-patio',
+    title: 'Backyard Concrete Patio & Outdoor Living',
+    category: 'Patios',
+    location: 'South Shore, MA',
+    summary: 'A spacious poured-concrete patio and re-graded lawn that turned an underused backyard into a true outdoor living room, finished just in time for golden-hour evenings.',
+    cover: '/images/projects/concrete-patio/concrete-patio-02-thumb.jpg',
+    images: [
+      { src: '/images/projects/concrete-patio/concrete-patio-01.jpg', thumb: '/images/projects/concrete-patio/concrete-patio-01-thumb.jpg', stage: 'before', caption: 'Front bed reshaped and edged ahead of the backyard build', orientation: 'landscape' },
+      { src: '/images/projects/concrete-patio/concrete-patio-02.jpg', thumb: '/images/projects/concrete-patio/concrete-patio-02-thumb.jpg', stage: 'after', caption: 'New backyard concrete patio with a lounge set at golden hour', orientation: 'landscape' },
+      { src: '/images/projects/concrete-patio/concrete-patio-03.jpg', thumb: '/images/projects/concrete-patio/concrete-patio-03-thumb.jpg', stage: 'after', caption: 'Spacious poured-concrete patio and freshly leveled lawn', orientation: 'landscape' },
+      { src: '/images/projects/concrete-patio/concrete-patio-04.jpg', thumb: '/images/projects/concrete-patio/concrete-patio-04-thumb.jpg', stage: 'after', caption: 'Backyard patio finished and ready for outdoor living', orientation: 'landscape' },
+      { src: '/images/projects/concrete-patio/concrete-patio-05.jpg', thumb: '/images/projects/concrete-patio/concrete-patio-05-thumb.jpg', stage: 'after', caption: 'Clean patio edges meeting a healthy, even lawn', orientation: 'portrait' },
+      { src: '/images/projects/concrete-patio/concrete-patio-06.jpg', thumb: '/images/projects/concrete-patio/concrete-patio-06-thumb.jpg', stage: 'after', caption: 'Outdoor seating area on the completed concrete patio', orientation: 'portrait' },
+    ],
+  },
+  {
+    slug: 'stone-wall-restoration',
+    title: 'Granite Fieldstone Wall Restoration',
+    category: 'Hardscape',
+    location: 'South Shore, MA',
+    summary: 'Careful restoration of a natural granite fieldstone retaining wall and stone stairway — excavation, hand-set stone, grading, and a thorough final clean-up.',
+    cover: '/images/projects/stone-wall-restoration/stone-wall-restoration-03-thumb.jpg',
+    images: [
+      { src: '/images/projects/stone-wall-restoration/stone-wall-restoration-01.jpg', thumb: '/images/projects/stone-wall-restoration/stone-wall-restoration-01-thumb.jpg', stage: 'process', caption: 'Compact excavator clearing the work area beside a Japanese maple', orientation: 'landscape' },
+      { src: '/images/projects/stone-wall-restoration/stone-wall-restoration-02.jpg', thumb: '/images/projects/stone-wall-restoration/stone-wall-restoration-02-thumb.jpg', stage: 'process', caption: 'Crew member preparing the base for the rebuilt stone wall', orientation: 'portrait' },
+      { src: '/images/projects/stone-wall-restoration/stone-wall-restoration-03.jpg', thumb: '/images/projects/stone-wall-restoration/stone-wall-restoration-03-thumb.jpg', stage: 'process', caption: 'Restoring a natural granite fieldstone retaining wall', orientation: 'portrait' },
+      { src: '/images/projects/stone-wall-restoration/stone-wall-restoration-04.jpg', thumb: '/images/projects/stone-wall-restoration/stone-wall-restoration-04-thumb.jpg', stage: 'process', caption: 'Hand-setting stone for a durable, long-lasting wall', orientation: 'portrait' },
+      { src: '/images/projects/stone-wall-restoration/stone-wall-restoration-05.jpg', thumb: '/images/projects/stone-wall-restoration/stone-wall-restoration-05-thumb.jpg', stage: 'process', caption: 'Detailing and cleanup along the rebuilt stone wall', orientation: 'portrait' },
+      { src: '/images/projects/stone-wall-restoration/stone-wall-restoration-06.jpg', thumb: '/images/projects/stone-wall-restoration/stone-wall-restoration-06-thumb.jpg', stage: 'process', caption: 'Power-washing and finishing the restored wall and steps', orientation: 'portrait' },
+      { src: '/images/projects/stone-wall-restoration/stone-wall-restoration-07.jpg', thumb: '/images/projects/stone-wall-restoration/stone-wall-restoration-07-thumb.jpg', stage: 'process', caption: 'Final cleanup of the granite wall and stone stairway', orientation: 'portrait' },
+      { src: '/images/projects/stone-wall-restoration/stone-wall-restoration-08.jpg', thumb: '/images/projects/stone-wall-restoration/stone-wall-restoration-08-thumb.jpg', stage: 'process', caption: 'Crew grading and tidying the surrounding grounds', orientation: 'portrait' },
+    ],
+  },
+  {
+    slug: 'lawn-care',
+    title: 'Lawn Care & Seasonal Property Care',
+    category: 'Landscaping',
+    location: 'South Shore, MA',
+    summary: 'Ongoing maintenance and seasonal refreshes that keep South Shore properties healthy, tidy, and looking their best year-round.',
+    cover: '/images/projects/lawn-care/lawn-care-01-thumb.jpg',
+    images: [
+      { src: '/images/projects/lawn-care/lawn-care-01.jpg', thumb: '/images/projects/lawn-care/lawn-care-01-thumb.jpg', stage: 'after', caption: 'Lush, healthy lawn with a paver walkway at a classic two-story home', orientation: 'portrait' },
+      { src: '/images/projects/lawn-care/lawn-care-02.jpg', thumb: '/images/projects/lawn-care/lawn-care-02-thumb.jpg', stage: 'after', caption: 'Manicured lawns and mulch beds along a residential street', orientation: 'portrait' },
+      { src: '/images/projects/lawn-care/lawn-care-03.jpg', thumb: '/images/projects/lawn-care/lawn-care-03-thumb.jpg', stage: 'after', caption: 'Expansive mulch installation and seasonal bed refresh', orientation: 'portrait' },
+      { src: '/images/projects/lawn-care/lawn-care-04.jpg', thumb: '/images/projects/lawn-care/lawn-care-04-thumb.jpg', stage: 'process', caption: 'Crew raking and finishing a property cleanup', orientation: 'landscape' },
+      { src: '/images/projects/lawn-care/lawn-care-05.jpg', thumb: '/images/projects/lawn-care/lawn-care-05-thumb.jpg', stage: 'process', caption: 'Oliveira team member maintaining a backyard property', orientation: 'portrait' },
+    ],
+  },
+];
+
+export const STAGE_LABELS = { before: 'Before', process: 'In Progress', after: 'Finished' };

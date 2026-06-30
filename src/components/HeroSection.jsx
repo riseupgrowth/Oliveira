@@ -77,7 +77,7 @@ const HeroSection = () => {
           className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-white/85"
         >
           <span className="flex items-center gap-2"><ShieldCheck className="w-4 h-4 text-brand-green-light" /> Licensed &amp; Insured</span>
-          <span className="flex items-center gap-2"><Star className="w-4 h-4 text-brand-green-light" /> 11+ Years Experience</span>
+          <span className="flex items-center gap-2"><Star className="w-4 h-4 text-brand-green-light" /> 16+ Years Experience</span>
           <span className="flex items-center gap-2"><ShieldCheck className="w-4 h-4 text-brand-green-light" /> Free Detailed Estimates</span>
         </motion.div>
       </div>

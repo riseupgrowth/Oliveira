@@ -23,7 +23,7 @@ const AboutSection = () => {
           >
 <ImageCarousel images={ABOUT_GALLERY} className="w-full h-[540px]" />
             <div className="absolute -bottom-6 -right-6 bg-brand-green-dark text-white rounded-2xl px-7 py-5 shadow-xl hidden sm:block">
-              <p className="font-heading text-4xl font-extrabold leading-none">11+</p>
+              <p className="font-heading text-4xl font-extrabold leading-none">16+</p>
               <p className="text-sm text-white/80 mt-1">Years Serving<br />the South Shore</p>
             </div>
             <div className="absolute -top-5 -left-5 bg-white rounded-2xl px-5 py-3 shadow-xl hidden sm:flex items-center gap-2 border border-brand-sand">
@@ -42,7 +42,7 @@ const AboutSection = () => {
             <h2 className="section-title mt-3 mb-6">A Family Name You Can Build On</h2>
             <div className="space-y-4 text-lg text-gray-700 leading-relaxed">
               <p>
-                For over <strong>11 years</strong>, Oliveira Landscaping Construction has been a
+                For over <strong>16 years</strong>, Oliveira Landscaping Construction has been a
                 family-owned, owner-operated company transforming properties across Boston&apos;s South Shore.
                 We&apos;re fully <strong>licensed and insured</strong> — and we treat every yard as if it were our own.
               </p>

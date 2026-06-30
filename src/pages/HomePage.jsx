@@ -16,7 +16,7 @@ const HomePage = () => {
     <>
       <SEO
         title="Oliveira Landscaping & Construction | South Shore MA Landscapers"
-        description="Family-owned landscaping, hardscape, paver patios, retaining walls & lawn care on Boston's South Shore. 11+ years, 1,500+ projects, 5.0 on Google. Licensed & insured. Free estimates."
+        description="Family-owned landscaping, hardscape, paver patios, retaining walls & lawn care on Boston's South Shore. 16+ years, 1,500+ projects, 5.0 on Google. Licensed & insured. Free estimates."
         path="/"
         keywords="landscaping South Shore MA, landscapers near me, hardscape contractor Massachusetts, paver patio installation, retaining wall builders, lawn care South Shore, Oliveira Landscaping, mulch installation, Bridgewater landscaping"
         includeLocalBusiness

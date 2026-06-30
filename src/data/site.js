@@ -18,7 +18,7 @@ export const BUSINESS = {
   },
   region: 'Boston South Shore',
   hours: 'Mon–Sat: 7:00 AM – 6:00 PM',
-  yearsExperience: '11',
+  yearsExperience: '16',
   projectsCompleted: '1500',
   founded: 2014,
   logo: 'https://horizons-cdn.hostinger.com/bf54a58c-e480-4deb-add4-b5097664342a/4f2a0fbc358a73e31d8e28898fcd2c06.png',
@@ -126,7 +126,7 @@ export const WHY_CHOOSE = [
   { icon: 'Truck', text: 'Fully Equipped Crews' },
   { icon: 'ClipboardList', text: 'Free Detailed Estimates' },
   { icon: 'CalendarCheck', text: 'Reliable Scheduling' },
-  { icon: 'Award', text: '11+ Years of Experience' },
+  { icon: 'Award', text: '16+ Years of Experience' },
   { icon: 'Star', text: 'Satisfaction Guaranteed' },
   { icon: 'Home', text: 'Family-Owned & Operated' },
 ];
@@ -160,7 +160,7 @@ export const TESTIMONIALS = [
 ];
 
 export const STATS = [
-  { value: 11, suffix: '+', label: 'Years of Experience' },
+  { value: 16, suffix: '+', label: 'Years of Experience' },
   { value: 1500, suffix: '+', label: 'Projects Completed' },
   { value: 30, suffix: '+', label: 'South Shore Towns Served' },
   { value: 45, suffix: '', label: '5-Star Google Reviews' },

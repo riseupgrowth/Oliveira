@@ -32,15 +32,15 @@ const AboutPage = () => {
     <>
       <SEO
         title="About Us | Oliveira Landscaping Construction — South Shore MA"
-        description="Meet Oliveira Landscaping Construction — a family-owned, licensed & insured landscaping and hardscape company with 11+ years and 1,500+ projects across Boston's South Shore. Our story, values, and process."
+        description="Meet Oliveira Landscaping Construction — a family-owned, licensed & insured landscaping and hardscape company with 16+ years and 1,500+ projects across Boston's South Shore. Our story, values, and process."
         path="/about"
-        keywords="about Oliveira Landscaping, family owned landscaping South Shore, licensed insured landscapers MA, 11 years landscaping Massachusetts"
+        keywords="about Oliveira Landscaping, family owned landscaping South Shore, licensed insured landscapers MA, 16 years landscaping Massachusetts"
         image="/images/site/about.jpg"
       />
 
       <PageHero
         title="Family-Owned. Results-Driven."
-        subtitle="Eleven years, 1,500+ projects, and one standard: outdoor spaces our South Shore neighbors are proud to call their own."
+        subtitle="Sixteen years, 1,500+ projects, and one standard: outdoor spaces our South Shore neighbors are proud to call their own."
         image="/images/site/why-choose.jpg"
         crumb="About Us"
       />
@@ -73,7 +73,7 @@ const AboutPage = () => {
             <div className="space-y-4 text-lg text-gray-700 leading-relaxed">
               <p>
                 Oliveira Landscaping Construction started with a single truck, a strong work ethic, and a
-                promise: to treat every customer&apos;s property like family. More than <strong>11 years</strong> later,
+                promise: to treat every customer&apos;s property like family. More than <strong>16 years</strong> later,
                 we&apos;ve completed over <strong>1,500 projects</strong> across Boston&apos;s South Shore — and that
                 promise hasn&apos;t changed.
               </p>

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.oliveiralandscaping.com/sitemap.xml
+Sitemap: https://www.oliveiracorporation.com/sitemap.xml

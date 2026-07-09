@@ -22,7 +22,7 @@ export const BUSINESS = {
   projectsCompleted: '1500',
   founded: 2014,
   logo: 'https://horizons-cdn.hostinger.com/bf54a58c-e480-4deb-add4-b5097664342a/4f2a0fbc358a73e31d8e28898fcd2c06.png',
-  siteUrl: 'https://www.oliveiralandscaping.com',
+  siteUrl: 'https://www.oliveiracorporation.com',
   google: {
     rating: '5.0',
     reviewCount: 45,

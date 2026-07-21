@@ -2,6 +2,7 @@
 
 import fs from 'fs';
 import path from 'path';
+import { pathToFileURL } from 'url';
 
 const CLEAN_CONTENT_REGEX = {
   comments: /\/\*[\s\S]*?\*\/|\/\/.*$/gm,
@@ -103,8 +104,8 @@ function extractHelmetData(content, filePath, routes) {
   const description = cleanText(descMatch?.[1]);
   
   const fileName = path.basename(filePath, path.extname(filePath));
-  const url = routes.length && routes.has(fileName) 
-    ? routes.get(fileName) 
+  const url = routes.size && routes.has(fileName)
+    ? routes.get(fileName)
     : generateFallbackUrl(fileName);
   
   return {
@@ -163,8 +164,10 @@ function main() {
   }
 
   if (pages.length === 0) {
-    console.error('❌ No pages with Helmet components found!');
-    process.exit(1);
+    // Non-fatal: llms.txt is an optional SEO nicety. Never fail the build over it,
+    // so `generate-llms && vite build` always proceeds to the actual site build.
+    console.warn('⚠ No pages with Helmet metadata found — skipping llms.txt generation.');
+    return;
   }
 
 
@@ -175,7 +178,7 @@ function main() {
   fs.writeFileSync(outputPath, llmsTxtContent, 'utf8');
 }
 
-const isMainModule = import.meta.url === `file://${process.argv[1]}`;
+const isMainModule = import.meta.url === pathToFileURL(process.argv[1]).href;
 
 if (isMainModule) {
   main();

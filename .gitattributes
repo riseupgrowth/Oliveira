@@ -1,0 +1,24 @@
+# Normalize line endings across every OS.
+# Text files are stored as LF in the repository and checked out as LF everywhere,
+# so Windows checkouts stop showing spurious CRLF-only "modified" diffs.
+* text=auto eol=lf
+
+# Keep shell scripts LF (must not be CRLF or they break on Unix).
+*.sh text eol=lf
+
+# Binary assets: never touch (protects images, fonts, archives from corruption).
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.webp  binary
+*.ico   binary
+*.woff  binary
+*.woff2 binary
+*.ttf   binary
+*.eot   binary
+*.otf   binary
+*.pdf   binary
+*.zip   binary
+*.mp4   binary
+*.webm  binary

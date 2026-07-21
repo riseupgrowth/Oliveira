@@ -90,6 +90,23 @@
   .card-hover {
     @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl;
   }
+
+  /* Readable long-form layout for legal pages (Privacy, Terms). */
+  .legal-prose {
+    @apply text-gray-700 leading-relaxed;
+  }
+  .legal-prose h2 {
+    @apply font-heading text-2xl font-bold text-brand-green-dark mt-10 mb-3;
+  }
+  .legal-prose p {
+    @apply mb-4;
+  }
+  .legal-prose ul {
+    @apply list-disc pl-6 mb-4 space-y-2;
+  }
+  .legal-prose a {
+    @apply text-brand-green font-semibold underline hover:text-brand-green-dark;
+  }
 }
 
 @layer utilities {

@@ -10,6 +10,8 @@ import AboutPage from '@/pages/AboutPage';
 import GalleryPage from '@/pages/GalleryPage';
 import ServiceAreasPage from '@/pages/ServiceAreasPage';
 import ContactPage from '@/pages/ContactPage';
+import PrivacyPolicyPage from '@/pages/PrivacyPolicyPage';
+import TermsPage from '@/pages/TermsPage';
 import NotFoundPage from '@/pages/NotFoundPage';
 
 function App() {
@@ -24,6 +26,8 @@ function App() {
           <Route path="/gallery" element={<GalleryPage />} />
           <Route path="/service-areas" element={<ServiceAreasPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/privacy" element={<PrivacyPolicyPage />} />
+          <Route path="/terms" element={<TermsPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>

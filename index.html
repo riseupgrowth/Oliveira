@@ -21,13 +21,97 @@
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content="Oliveira Landscaping & Construction | South Shore MA" />
 		<meta name="twitter:description" content="Premier landscaping, hardscape & lawn care on Boston's South Shore. Licensed & insured. Free estimates." />
+		<meta name="twitter:url" content="https://www.oliveiracorporation.com/" />
 		<meta name="twitter:image" content="https://www.oliveiracorporation.com/images/site/hero.jpg" />
 
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+		<!--
+			Static LocalBusiness structured data.
+			Duplicated in the server-delivered HTML (in addition to the React-injected
+			JSON-LD) so search-engine and policy crawlers that do not execute JavaScript
+			still receive complete, honest business data on the home page.
+		-->
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "LandscapingBusiness",
+			"@id": "https://www.oliveiracorporation.com/#business",
+			"name": "Oliveira Landscaping Construction",
+			"image": "https://www.oliveiracorporation.com/images/site/hero.jpg",
+			"url": "https://www.oliveiracorporation.com",
+			"telephone": "+1 (774) 297-3349",
+			"email": "oliveiracorporation2016@gmail.com",
+			"priceRange": "$$",
+			"address": {
+				"@type": "PostalAddress",
+				"streetAddress": "50 Whitman Street",
+				"addressLocality": "Bridgewater",
+				"addressRegion": "MA",
+				"postalCode": "02324",
+				"addressCountry": "US"
+			},
+			"geo": { "@type": "GeoCoordinates", "latitude": 41.9904, "longitude": -70.9751 },
+			"areaServed": "Boston South Shore, Massachusetts",
+			"openingHoursSpecification": {
+				"@type": "OpeningHoursSpecification",
+				"dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+				"opens": "07:00",
+				"closes": "18:00"
+			},
+			"sameAs": ["https://www.instagram.com/oliveiralandscapingc/"],
+			"aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "45" }
+		}
+		</script>
 	</head>
 	<body>
 		<div id="root"></div>
+
+		<!--
+			Static, no-JavaScript fallback. Mirrors the live page content so that
+			crawlers and automated classifiers that do not run JavaScript receive a
+			complete, truthful representation of the site (prevents the "empty shell"
+			/ cloaking signal). Hidden for normal visitors, who get the full React app.
+		-->
+		<noscript>
+			<div style="max-width:820px;margin:0 auto;padding:32px 20px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.6;color:#1f2937">
+				<h1>Oliveira Landscaping &amp; Construction — South Shore, Massachusetts</h1>
+				<p>
+					Family-owned landscaping, hardscape, and construction company serving Boston's
+					South Shore for 16+ years, with 1,500+ completed projects and a 5.0 Google rating.
+					Licensed &amp; insured. Free, no-obligation estimates.
+				</p>
+
+				<h2>Our Services</h2>
+				<ul>
+					<li><strong>Landscaping &amp; Lawn Care</strong> — lawn maintenance, spring &amp; fall clean-ups, mulching, sod installation, seasonal plantings, shrub trimming, power washing.</li>
+					<li><strong>Hardscape &amp; Masonry</strong> — paver patios &amp; walkways, retaining walls, natural stone walls, granite steps, driveway paving, grading.</li>
+					<li><strong>Patios &amp; Outdoor Living</strong> — poured concrete and paver patios, walkways, outdoor seating areas, drainage, full backyard transformations.</li>
+				</ul>
+
+				<h2>Service Area</h2>
+				<p>
+					Serving all of Boston's South Shore, including Quincy, Braintree, Weymouth, Hingham,
+					Cohasset, Scituate, Norwell, Marshfield, Duxbury, Bridgewater, Brockton, Whitman,
+					Hanover, Pembroke, Plymouth, Kingston, Carver, and surrounding towns in Massachusetts.
+				</p>
+
+				<h2>Contact Us</h2>
+				<p>
+					Oliveira Landscaping Construction<br />
+					50 Whitman Street, Bridgewater, MA 02324<br />
+					Phone / Text: <a href="tel:+17742973349">(774) 297-3349</a><br />
+					Email: <a href="mailto:oliveiracorporation2016@gmail.com">oliveiracorporation2016@gmail.com</a><br />
+					Hours: Monday–Saturday, 7:00 AM – 6:00 PM
+				</p>
+				<p>
+					<a href="/privacy">Privacy Policy</a> &middot; <a href="/terms">Terms of Service</a>
+				</p>
+				<p><em>This website requires JavaScript for the full interactive experience.</em></p>
+			</div>
+		</noscript>
+
 		<script type="module" src="/src/main.jsx"></script>
 	</body>
 </html>

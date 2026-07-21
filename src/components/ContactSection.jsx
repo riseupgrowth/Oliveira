@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/components/ui/use-toast';
@@ -20,6 +21,14 @@ const ContactSection = ({ showHeader = true }) => {
     setSubmitting(true);
     const form = e.target;
     const data = new FormData(form);
+    // Record the consent the visitor gave, alongside the lead, so it is captured
+    // in the same message we receive (the checkbox itself is not a native form field).
+    data.append('consent', 'Yes');
+    data.append(
+      'consent_statement',
+      'I agree to be contacted about my request and accept the Privacy Policy and Terms of Service. I understand I can opt out at any time.'
+    );
+    data.append('consent_timestamp', new Date().toISOString());
     try {
       const res = await fetch(`https://formsubmit.co/ajax/${BUSINESS.email}`, {
         method: 'POST',
@@ -116,7 +125,10 @@ const ContactSection = ({ showHeader = true }) => {
                 <div className="flex items-start space-x-2">
                   <Checkbox id="terms" checked={agreed} onCheckedChange={(v) => setAgreed(!!v)} className="mt-0.5 border-white data-[state=checked]:bg-brand-green-lime data-[state=checked]:text-brand-green-dark" />
                   <label htmlFor="terms" className="text-sm text-gray-200 leading-snug">
-                    I agree to be contacted about my request and accept the privacy policy. I understand I can opt out at any time.
+                    I agree to be contacted about my request and accept the{' '}
+                    <Link to="/privacy" target="_blank" rel="noopener noreferrer" className="underline text-brand-green-lime hover:text-white">Privacy Policy</Link>
+                    {' '}and{' '}
+                    <Link to="/terms" target="_blank" rel="noopener noreferrer" className="underline text-brand-green-lime hover:text-white">Terms of Service</Link>. I understand I can opt out at any time.
                   </label>
                 </div>
               </div>

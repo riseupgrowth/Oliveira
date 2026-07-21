@@ -80,7 +80,10 @@ const Footer = () => {
 
         <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-center">
           <p className="text-sm text-white/60">© {year} {BUSINESS.name}. All rights reserved.</p>
-          <p className="text-sm text-white/40">Landscaping &amp; Hardscape · South Shore, Massachusetts</p>
+          <div className="flex items-center gap-5 text-sm">
+            <Link to="/privacy" className="text-white/60 hover:text-brand-green-light transition-colors">Privacy Policy</Link>
+            <Link to="/terms" className="text-white/60 hover:text-brand-green-light transition-colors">Terms of Service</Link>
+          </div>
         </div>
       </div>
     </footer>

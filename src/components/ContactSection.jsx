@@ -29,8 +29,13 @@ const ContactSection = ({ showHeader = true }) => {
       'I agree to be contacted about my request and accept the Privacy Policy and Terms of Service. I understand I can opt out at any time.'
     );
     data.append('consent_timestamp', new Date().toISOString());
+    // Send a copy of every lead to the business owner; the endpoint itself is
+    // owned by the agency inbox (see BUSINESS.formDelivery).
+    if (BUSINESS.formDelivery.cc) {
+      data.append('_cc', BUSINESS.formDelivery.cc);
+    }
     try {
-      const res = await fetch(`https://formsubmit.co/ajax/${BUSINESS.email}`, {
+      const res = await fetch(`https://formsubmit.co/ajax/${BUSINESS.formDelivery.primary}`, {
         method: 'POST',
         headers: { Accept: 'application/json' },
         body: data,

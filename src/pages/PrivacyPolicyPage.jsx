@@ -49,8 +49,9 @@ const PrivacyPolicyPage = () => {
           <p>
             When you submit the contact form, the information is sent over an encrypted (HTTPS)
             connection to a third-party form-delivery service (FormSubmit), which forwards the
-            message to our business email inbox. We do not store your submission in a database
-            on this website.
+            message by email to us and to the marketing agency that manages this website and our
+            advertising on our behalf. Both receive the same message so your request can be
+            answered quickly. We do not store your submission in a database on this website.
           </p>
 
           <h2>How We Use Your Information</h2>
@@ -75,7 +76,8 @@ const PrivacyPolicyPage = () => {
           </p>
           <ul>
             <li><strong>Website hosting &amp; CDN</strong> — serves the site and may log IP addresses for security and performance.</li>
-            <li><strong>FormSubmit</strong> — receives your contact-form submission and forwards it to our email inbox.</li>
+            <li><strong>FormSubmit</strong> — receives your contact-form submission and forwards it by email.</li>
+            <li><strong>Our marketing agency</strong> — manages this website and our advertising, and receives a copy of contact-form submissions solely to help us respond to your request.</li>
             <li><strong>Google Fonts</strong> — loads the site&apos;s typography; may receive your IP address as part of the request.</li>
             <li><strong>Google (Business Profile &amp; reviews)</strong> — we display our public Google rating and link to our Google reviews.</li>
             <li><strong>Featurable</strong> — optionally displays our live Google reviews widget.</li>

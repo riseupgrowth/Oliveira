@@ -9,6 +9,14 @@ export const BUSINESS = {
   phoneHref: 'tel:+17742973349',
   whatsappHref: 'https://wa.me/17742973349',
   email: 'oliveiracorporation2016@gmail.com',
+  // Where contact-form leads are delivered.
+  // `primary` owns the FormSubmit endpoint (and receives its one-time activation
+  // email); `cc` gets a copy of every lead. The public-facing address above is
+  // unchanged — this only controls delivery.
+  formDelivery: {
+    primary: 'contact@agencyriseup.com',
+    cc: 'oliveiracorporation2016@gmail.com',
+  },
   address: {
     street: '50 Whitman Street',
     city: 'Bridgewater',

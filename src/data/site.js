@@ -17,6 +17,16 @@ export const BUSINESS = {
     primary: 'contact@agencyriseup.com',
     cc: 'oliveiracorporation2016@gmail.com',
   },
+  // Google Ads conversion tracking.
+  // Values come from Google Ads > Goals > Conversions > "View event snippet".
+  // Leaving googleAdsId empty disables tracking entirely (nothing is loaded).
+  tracking: {
+    googleAdsId: 'AW-10875277819',
+    conversionLabels: {
+      formSubmit: 'guTwCPuy8dUcEPuj3sEo', // "Contact form submission"
+      phoneCall: 'XRv_CP6y8dUcEPuj3sEo', // "Phone call click"
+    },
+  },
   address: {
     street: '50 Whitman Street',
     city: 'Bridgewater',

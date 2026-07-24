@@ -6,6 +6,7 @@ import { useToast } from '@/components/ui/use-toast';
 import { Phone, Mail, MapPin, Clock, Loader2 } from 'lucide-react';
 import { Checkbox } from '@/components/ui/checkbox';
 import { BUSINESS, SERVICES } from '@/data/site';
+import { trackConversion } from '@/lib/analytics';
 
 const ContactSection = ({ showHeader = true }) => {
   const { toast } = useToast();
@@ -41,6 +42,7 @@ const ContactSection = ({ showHeader = true }) => {
         body: data,
       });
       if (res.ok) {
+        trackConversion('formSubmit');
         toast({ title: 'Message sent!', description: "Thank you — we'll be in touch within one business day.", duration: 6000 });
         form.reset();
         setAgreed(false);

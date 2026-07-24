@@ -80,6 +80,7 @@ const PrivacyPolicyPage = () => {
             <li><strong>Our marketing agency</strong> — manages this website and our advertising, and receives a copy of contact-form submissions solely to help us respond to your request.</li>
             <li><strong>Google Fonts</strong> — loads the site&apos;s typography; may receive your IP address as part of the request.</li>
             <li><strong>Google (Business Profile &amp; reviews)</strong> — we display our public Google rating and link to our Google reviews.</li>
+            <li><strong>Google Ads (conversion measurement)</strong> — when you arrive from one of our ads, Google may set cookies so we can see that a contact-form submission or a phone-call click came from that ad. We use this only to measure how well our advertising works; it does not tell us who you are.</li>
             <li><strong>Featurable</strong> — optionally displays our live Google reviews widget.</li>
           </ul>
           <p>

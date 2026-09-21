@@ -7,8 +7,8 @@ const PrivacyPolicyPage = () => {
   return (
     <>
       <SEO
-        title="Privacy Policy | Oliveira Landscaping Construction — South Shore MA"
-        description="How Oliveira Landscaping Construction collects, uses, and protects the information you submit through our website. We never sell your information."
+        title="Privacy Policy | Oliveira Landscaping — South Shore MA"
+        description="How Oliveira Landscaping collects, uses, and protects the information you submit through our website. We never sell your information."
         path="/privacy"
         image="/images/site/about.jpg"
       />

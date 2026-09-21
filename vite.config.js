@@ -211,6 +211,9 @@ if (window.navigation && window.self !== window.top) {
 const addTransformIndexHtml = {
 	name: 'add-transform-index-html',
 	transformIndexHtml(html) {
+		// Editor/debug hooks only make sense inside the Horizons preview iframe.
+		// In production they monkey-patch fetch/console and log spurious errors.
+		if (!isDev) return html;
 		const tags = [
 			{
 				tag: 'script',
@@ -299,6 +302,11 @@ export default defineConfig({
 		alias: {
 			'@': path.resolve(__dirname, './src'),
 		},
+	},
+	// Build-time prerender bundle (src/entry-server.jsx): bundle every dependency so
+	// CommonJS packages like react-helmet-async load cleanly under Node ESM.
+	ssr: {
+		noExternal: true,
 	},
 	build: {
 		rollupOptions: {

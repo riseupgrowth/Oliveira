@@ -31,8 +31,8 @@ const AboutPage = () => {
   return (
     <>
       <SEO
-        title="About Us | Oliveira Landscaping Construction — South Shore MA"
-        description="Meet Oliveira Landscaping Construction — a family-owned, licensed & insured landscaping and hardscape company with 16+ years and 1,500+ projects across Boston's South Shore. Our story, values, and process."
+        title="About Us | Oliveira Landscaping — South Shore MA"
+        description="Family-owned, licensed & insured landscaping and hardscape company with 16+ years and 1,500+ projects across Boston's South Shore, MA."
         path="/about"
         keywords="about Oliveira Landscaping, family owned landscaping South Shore, licensed insured landscapers MA, 16 years landscaping Massachusetts"
         image="/images/site/about.jpg"
@@ -72,7 +72,7 @@ const AboutPage = () => {
             <h2 className="section-title mt-3 mb-6">Built on Hard Work, Trust, and Family</h2>
             <div className="space-y-4 text-lg text-gray-700 leading-relaxed">
               <p>
-                Oliveira Landscaping Construction started with a single truck, a strong work ethic, and a
+                Oliveira Landscaping started with a single truck, a strong work ethic, and a
                 promise: to treat every customer&apos;s property like family. More than <strong>16 years</strong> later,
                 we&apos;ve completed over <strong>1,500 projects</strong> across Boston&apos;s South Shore — and that
                 promise hasn&apos;t changed.

@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ShieldCheck, Layers, Truck, ClipboardList, CalendarCheck, Award, Star, MapPin } from 'lucide-react';
 import { WHY_CHOOSE } from '@/data/site';
+import LazyBackground from '@/components/LazyBackground';
 
 const ICONS = { ShieldCheck, Layers, Truck, ClipboardList, CalendarCheck, Award, Star, MapPin };
 
@@ -17,9 +18,9 @@ const marqueeVariants = {
 const WhyChooseUsSection = () => {
   return (
     <section id="why-choose-us" className="py-24 sm:py-32 relative overflow-hidden">
-      <div
+      <LazyBackground
+        src="/images/site/why-choose.jpg"
         className="absolute inset-0 z-0 bg-cover bg-center md:bg-fixed"
-        style={{ backgroundImage: 'url(/images/site/why-choose.jpg)' }}
         role="img"
         aria-label="Oliveira Landscaping crew restoring a natural granite stone retaining wall"
       />

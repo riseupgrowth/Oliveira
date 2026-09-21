@@ -8,7 +8,7 @@ import '@/index.css';
 
 initTracking();
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+const app = (
   <React.StrictMode>
     <HelmetProvider>
       <BrowserRouter>
@@ -17,3 +17,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     </HelmetProvider>
   </React.StrictMode>
 );
+
+// Pages are prerendered to static HTML at build time (tools/prerender-routes.js):
+// hydrate that markup instead of re-rendering from scratch.
+const root = document.getElementById('root');
+if (root.hasChildNodes()) ReactDOM.hydrateRoot(root, app);
+else ReactDOM.createRoot(root).render(app);

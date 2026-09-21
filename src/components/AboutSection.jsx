@@ -42,7 +42,7 @@ const AboutSection = () => {
             <h2 className="section-title mt-3 mb-6">A Family Name You Can Build On</h2>
             <div className="space-y-4 text-lg text-gray-700 leading-relaxed">
               <p>
-                For over <strong>16 years</strong>, Oliveira Landscaping Construction has been a
+                For over <strong>16 years</strong>, Oliveira Landscaping has been a
                 family-owned, owner-operated company transforming properties across Boston&apos;s South Shore.
                 We&apos;re fully <strong>licensed and insured</strong> — and we treat every yard as if it were our own.
               </p>

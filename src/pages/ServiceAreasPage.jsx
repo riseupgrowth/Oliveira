@@ -19,7 +19,7 @@ const ServiceAreasPage = () => {
     <>
       <SEO
         title="Service Areas | Landscaping Across Boston's South Shore | Oliveira"
-        description="Oliveira Landscaping serves 30+ South Shore MA towns including Quincy, Braintree, Weymouth, Hingham, Scituate, Marshfield, Plymouth, Bridgewater & more. Local landscaping & hardscape. Free estimates."
+        description="Landscaping & hardscape in 30+ South Shore MA towns: Quincy, Braintree, Weymouth, Hingham, Scituate, Marshfield, Plymouth, Bridgewater & more."
         path="/service-areas"
         keywords="landscaping service areas South Shore MA, landscapers Quincy, Hingham landscaping, Plymouth landscaping, Marshfield hardscape, Bridgewater landscaping, Weymouth lawn care, Scituate retaining walls"
         image="/images/site/service-areas.jpg"
@@ -38,7 +38,7 @@ const ServiceAreasPage = () => {
           <span className="eyebrow">Where We Work</span>
           <h2 className="section-title mt-3 mb-6">Local Landscaping You Can Count On</h2>
           <p className="text-lg text-gray-600 leading-relaxed">
-            Oliveira Landscaping Construction is proud to call the South Shore home. From our base in
+            Oliveira Landscaping is proud to call the South Shore home. From our base in
             Bridgewater, our crews travel throughout Norfolk and Plymouth counties to design, build, and
             maintain beautiful outdoor spaces. Whether you own a coastal property in Scituate, a colonial
             in Hingham, or a family home in Brockton, you get the same high standard of craftsmanship and

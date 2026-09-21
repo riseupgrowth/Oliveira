@@ -10,7 +10,7 @@ const PageHero = ({ title, subtitle, image, crumb }) => {
   return (
     <section className="relative pt-44 pb-24 text-white overflow-hidden">
       <div className="absolute inset-0 z-0">
-        <img src={image} alt={title} className="w-full h-full object-cover" />
+        <img src={image} alt="" fetchpriority="high" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-brand-green-deep/85 via-brand-green-deep/70 to-brand-green-deep/85" />
       </div>
       <div className="container-tight relative z-10 text-center">
@@ -25,24 +25,17 @@ const PageHero = ({ title, subtitle, image, crumb }) => {
           <ChevronRight className="w-4 h-4" />
           <span className="text-brand-green-lime font-semibold">{crumb || title}</span>
         </motion.nav>
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.05 }}
+        {/* No entrance animation: the H1 is the page's LCP element and must paint immediately. */}
+        <h1
           className="font-heading text-4xl md:text-6xl font-extrabold mb-4"
           style={{ textShadow: '0 4px 14px rgba(0,0,0,0.4)' }}
         >
           {title}
-        </motion.h1>
+        </h1>
         {subtitle && (
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            className="text-lg md:text-xl max-w-3xl mx-auto text-gray-100"
-          >
+          <p className="text-lg md:text-xl max-w-3xl mx-auto text-gray-100">
             {subtitle}
-          </motion.p>
+          </p>
         )}
       </div>
     </section>

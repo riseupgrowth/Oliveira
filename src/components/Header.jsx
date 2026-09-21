@@ -59,7 +59,7 @@ const Header = () => {
 
       <div className="container-tight flex justify-between items-center h-20">
         <Link to="/" className="flex items-center" aria-label="Oliveira Landscaping home">
-          <img src={BUSINESS.logo} alt="Oliveira Landscaping Construction logo" className="h-12 w-auto" />
+          <img src={BUSINESS.logo} alt="Oliveira Landscaping logo" width="480" height="204" className="h-12 w-auto" />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-7">

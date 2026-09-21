@@ -8,6 +8,7 @@ import FloatingActions from '@/components/FloatingActions';
 import HomePage from '@/pages/HomePage';
 import AboutPage from '@/pages/AboutPage';
 import GalleryPage from '@/pages/GalleryPage';
+import ProjectPage from '@/pages/ProjectPage';
 import ServiceAreasPage from '@/pages/ServiceAreasPage';
 import ContactPage from '@/pages/ContactPage';
 import PrivacyPolicyPage from '@/pages/PrivacyPolicyPage';
@@ -24,6 +25,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/gallery" element={<GalleryPage />} />
+          <Route path="/gallery/:slug" element={<ProjectPage />} />
           <Route path="/service-areas" element={<ServiceAreasPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/privacy" element={<PrivacyPolicyPage />} />

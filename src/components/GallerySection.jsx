@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Image as ImageIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { PROJECTS } from '@/data/gallery';
+import { projectPath } from '@/lib/gallery';
 
 const GallerySection = () => {
   const featured = PROJECTS.slice(0, 3);
@@ -35,12 +36,14 @@ const GallerySection = () => {
               transition={{ duration: 0.6, delay: i * 0.12 }}
             >
               <Link
-                to="/gallery"
+                to={projectPath(project)}
                 className="group block relative overflow-hidden rounded-3xl shadow-lg aspect-[4/5]"
               >
                 <img
                   src={project.cover}
                   alt={`${project.title} — Oliveira Landscaping project on the South Shore`}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />

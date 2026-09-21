@@ -26,10 +26,17 @@ export function initTracking() {
 
   initialized = true;
 
-  const script = document.createElement('script');
-  script.async = true;
-  script.src = `https://www.googletagmanager.com/gtag/js?id=${googleAdsId}`;
-  document.head.appendChild(script);
+  // gtag.js is ~150 KB: fetch it after the page has loaded so it doesn't compete
+  // with the hero. Calls made before then are queued in dataLayer and replayed.
+  const loadTag = () => {
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${googleAdsId}`;
+    document.head.appendChild(script);
+  };
+  const whenIdle = () => (window.requestIdleCallback ? window.requestIdleCallback(loadTag, { timeout: 3000 }) : setTimeout(loadTag, 1500));
+  if (document.readyState === 'complete') whenIdle();
+  else window.addEventListener('load', whenIdle, { once: true });
 
   window.dataLayer = window.dataLayer || [];
   window.gtag = function gtag() {

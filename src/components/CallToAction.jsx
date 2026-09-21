@@ -12,7 +12,7 @@ const CallToAction = ({
   return (
     <section className="py-24 relative overflow-hidden">
       <div className="absolute inset-0 z-0">
-        <img src="/images/site/cta.jpg" alt="Finished backyard concrete patio with outdoor seating at golden hour" className="w-full h-full object-cover" />
+        <img src="/images/site/cta.jpg" alt="Finished backyard concrete patio with outdoor seating at golden hour" loading="lazy" decoding="async" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-r from-brand-green-deep/95 via-brand-green-deep/80 to-brand-green-deep/95" />
         <div className="absolute inset-0 bg-black/35" />
         <div className="absolute inset-0 bg-topo-lime opacity-30" />

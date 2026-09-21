@@ -17,6 +17,12 @@ const HeroSection = () => {
           className="w-full h-full object-cover"
           alt="Oliveira Landscaping front-yard transformation with red mulch beds, sculpted shrubs and a crushed-stone driveway on the South Shore of Massachusetts"
           src="/images/site/hero.jpg"
+          srcSet="/images/site/hero-640.jpg 640w, /images/site/hero-1280.jpg 1280w, /images/site/hero.jpg 1920w"
+          sizes="100vw"
+          width="1920"
+          height="1440"
+          fetchpriority="high"
+          decoding="async"
         />
       </div>
 
@@ -35,26 +41,21 @@ const HeroSection = () => {
           Top-rated South Shore landscapers
         </motion.div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
+        {/* No entrance animation on the H1/intro: they are the LCP element and must paint immediately. */}
+        <h1
           className="font-heading text-4xl sm:text-5xl lg:text-7xl font-extrabold mb-6 leading-[1.05] max-w-5xl mx-auto"
           style={{ textShadow: '0 4px 18px rgba(0,0,0,0.55)' }}
         >
-          Outdoor Spaces That Turn Heads on the South Shore
-        </motion.h1>
+          South Shore MA Landscaping &amp; Hardscape That Turns Heads
+        </h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
+        <p
           className="text-lg md:text-xl mb-10 max-w-2xl mx-auto text-gray-100"
           style={{ textShadow: '0 2px 8px rgba(0,0,0,0.5)' }}
         >
           Expert landscaping, hardscape, patios, and retaining walls that add lasting beauty
           and value to your property — designed and built to the highest standard.
-        </motion.p>
+        </p>
 
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -88,7 +89,7 @@ const HeroSection = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.5, delay: 1, repeat: Infinity, repeatType: 'reverse', ease: 'easeInOut' }}
         className="absolute bottom-8 z-20 flex flex-col items-center text-white/80 hover:text-white transition-colors duration-300 group"
-        aria-label="Scroll down"
+        aria-label="Explore our services"
       >
         <span className="mb-1 text-xs font-semibold tracking-widest uppercase">Explore</span>
         <ArrowDown className="w-7 h-7 group-hover:animate-bounce" />

@@ -2,7 +2,7 @@
 // Edit values here once and they update everywhere across the site.
 
 export const BUSINESS = {
-  name: 'Oliveira Landscaping Construction',
+  name: 'Oliveira Landscaping',
   shortName: 'Oliveira Landscaping',
   tagline: 'South Shore Landscaping & Hardscape, Done Right',
   phoneDisplay: '+1 (774) 297-3349',
@@ -39,7 +39,7 @@ export const BUSINESS = {
   yearsExperience: '16',
   projectsCompleted: '1500',
   founded: 2014,
-  logo: 'https://horizons-cdn.hostinger.com/bf54a58c-e480-4deb-add4-b5097664342a/4f2a0fbc358a73e31d8e28898fcd2c06.png',
+  logo: '/logo.webp',
   siteUrl: 'https://www.oliveiracorporation.com',
   google: {
     rating: '5.0',

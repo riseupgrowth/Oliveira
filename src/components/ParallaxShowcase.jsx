@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Sprout, Hammer, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import LazyBackground from '@/components/LazyBackground';
 
 const STEPS = [
   { icon: Sprout, label: 'Vision & Design', text: 'We plan every line, grade, and plant before a shovel hits the ground.' },
@@ -16,9 +17,9 @@ const ParallaxShowcase = () => {
   return (
     <section className="relative py-28 md:py-36 overflow-hidden text-white">
       {/* Parallax background (fixed) */}
-      <div
+      <LazyBackground
+        src="/images/site/cta.jpg"
         className="absolute inset-0 z-0 bg-cover bg-center md:bg-fixed"
-        style={{ backgroundImage: 'url(/images/site/cta.jpg)' }}
       />
       {/* Readability overlays */}
       <div className="absolute inset-0 z-0 bg-gradient-to-b from-black/80 via-black/65 to-black/82" />

@@ -24,11 +24,12 @@ const ImageCarousel = ({ images = [], interval = 3800, className = '', rounded =
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 1.1, ease: 'easeInOut' }}
+          loading="lazy"
           className="absolute inset-0 w-full h-full object-cover"
         />
       </AnimatePresence>
       {/* keeps the container height since images are absolute */}
-      <img src={images[0].src} alt="" aria-hidden="true" className="w-full h-full object-cover opacity-0" />
+      <img src={images[0].src} alt="" aria-hidden="true" loading="lazy" className="w-full h-full object-cover opacity-0" />
 
       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex gap-2">
         {images.map((_, idx) => (

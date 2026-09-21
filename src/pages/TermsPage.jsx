@@ -7,8 +7,8 @@ const TermsPage = () => {
   return (
     <>
       <SEO
-        title="Terms of Service | Oliveira Landscaping Construction — South Shore MA"
-        description="The terms that apply to your use of the Oliveira Landscaping Construction website and our free estimate requests."
+        title="Terms of Service | Oliveira Landscaping — South Shore MA"
+        description="The terms that apply to your use of the Oliveira Landscaping website and our free estimate requests."
         path="/terms"
         image="/images/site/cta.jpg"
       />

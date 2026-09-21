@@ -25,7 +25,8 @@ const SEO = ({
     image: fullImage,
     '@id': `${BUSINESS.siteUrl}/#business`,
     url: BUSINESS.siteUrl,
-    telephone: BUSINESS.phoneDisplay,
+    logo: `${BUSINESS.siteUrl}/logo.png`,
+    telephone: '+17742973349',
     email: BUSINESS.email,
     priceRange: '$$',
     address: {
@@ -52,11 +53,6 @@ const SEO = ({
       closes: '18:00',
     },
     sameAs: [BUSINESS.social.instagram].filter(Boolean),
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '5.0',
-      reviewCount: '45',
-    },
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: 'Landscaping & Hardscape Services',

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Star, Quote, ExternalLink, PenLine } from 'lucide-react';
@@ -7,9 +7,25 @@ import GoogleIcon from '@/components/GoogleIcon';
 import { TESTIMONIALS, BUSINESS } from '@/data/site';
 
 // Loads the optional Featurable auto-updating Google reviews widget.
+// The widget is heavy (~160 KB JS + thousands of DOM nodes), so it is only
+// loaded once the reviews section is about to scroll into view.
 const FeaturableWidget = ({ id }) => {
+  const holder = useRef(null);
+  const [visible, setVisible] = useState(false);
+
   useEffect(() => {
-    if (!id) return;
+    const el = holder.current;
+    if (!el || visible) return;
+    const io = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setVisible(true); io.disconnect(); } },
+      { rootMargin: '400px 0px' },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [visible]);
+
+  useEffect(() => {
+    if (!id || !visible) return;
     const s = document.createElement('script');
     s.src = 'https://featurable.com/assets/bundle.js';
     s.defer = true; s.charset = 'UTF-8';
@@ -42,8 +58,12 @@ const FeaturableWidget = ({ id }) => {
       observer.disconnect();
       if (s.parentNode) s.parentNode.removeChild(s);
     };
-  }, [id]);
-  return <div id={id} data-featurable-async className="w-full" />;
+  }, [id, visible]);
+  return (
+    <div ref={holder} className="w-full min-h-[320px]">
+      {visible && <div id={id} data-featurable-async className="w-full" />}
+    </div>
+  );
 };
 
 const ReviewsSection = () => {

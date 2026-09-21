@@ -11,7 +11,7 @@ const Footer = () => {
       <div className="container-tight">
         <div className="grid md:grid-cols-12 gap-12 mb-14">
           <div className="md:col-span-4">
-            <img src={BUSINESS.logo} alt="Oliveira Landscaping Construction logo" className="h-20 mb-5" />
+            <img src={BUSINESS.logo} alt="Oliveira Landscaping logo" width="480" height="204" loading="lazy" className="h-20 w-auto mb-5" />
             <p className="text-white/70 max-w-md leading-relaxed">
               Your trusted partner for premium landscaping, hardscape, and outdoor living spaces across Boston&apos;s
               South Shore. Licensed, insured, and proudly local.

@@ -8,7 +8,7 @@ const ContactPage = () => {
     <>
       <SEO
         title="Contact Us | Free Estimate | Oliveira Landscaping — South Shore MA"
-        description="Contact Oliveira Landscaping Construction for a free, no-obligation estimate. Call (774) 297-3349 or send a message. Serving Boston's South Shore — landscaping, hardscape & patios."
+        description="Get a free, no-obligation landscaping or hardscape estimate on Boston's South Shore. Call (774) 297-3349 or send us a message."
         path="/contact"
         keywords="contact Oliveira Landscaping, free landscaping estimate South Shore, landscaper phone number MA, request landscaping quote"
         image="/images/site/contact.jpg"

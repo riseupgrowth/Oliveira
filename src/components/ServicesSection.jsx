@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Leaf, Hammer, LayoutGrid, ShieldCheck, Tag, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { SERVICES } from '@/data/site';
+import { SERVICE_PAGES } from '@/data/services';
 
 const ICONS = { Leaf, Hammer, LayoutGrid };
 
@@ -60,6 +61,17 @@ const ServicesSection = () => {
                       </li>
                     ))}
                   </ul>
+                </div>
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {SERVICE_PAGES.filter((p) => p.group === service.title).map((p) => (
+                    <Link
+                      key={p.slug}
+                      to={`/services/${p.slug}`}
+                      className="text-sm font-semibold text-brand-green-dark bg-brand-cream border border-brand-sand px-3 py-1.5 rounded-full hover:bg-brand-sand"
+                    >
+                      {p.name} →
+                    </Link>
+                  ))}
                 </div>
                 <Link to="/contact" className="mt-auto">
                   <Button className="w-full btn-custom-green text-base">Get Your Free Estimate</Button>

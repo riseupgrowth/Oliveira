@@ -16,6 +16,9 @@ module.exports = {
       },
     },
     extend: {
+      // Tailwind 3.3's default opacity scale lacks these steps, so classes like
+      // `from-brand-green-deep/85` generated no CSS and the image overlays vanished.
+      opacity: { 15: '0.15', 35: '0.35', 45: '0.45', 55: '0.55', 65: '0.65', 85: '0.85', 88: '0.88', 97: '0.97' },
       fontFamily: {
         heading: ['Poppins', 'sans-serif'],
         display: ['"Playfair Display"', 'serif'],

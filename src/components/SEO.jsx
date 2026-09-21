@@ -14,6 +14,7 @@ const SEO = ({
   image = '/images/site/hero.jpg',
   keywords,
   includeLocalBusiness = false,
+  schema = [],
 }) => {
   const url = `${BUSINESS.siteUrl}${path}`;
   const fullImage = image.startsWith('http') ? image : `${BUSINESS.siteUrl}${image}`;
@@ -86,6 +87,9 @@ const SEO = ({
       {includeLocalBusiness && (
         <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
       )}
+      {schema.map((s, i) => (
+        <script key={i} type="application/ld+json">{JSON.stringify(s)}</script>
+      ))}
     </Helmet>
   );
 };

@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button';
 import { StageSummary } from '@/components/gallery/ProjectCard';
 import NotFoundPage from '@/pages/NotFoundPage';
 import { PROJECTS } from '@/data/gallery';
+import { SERVICE_PAGES } from '@/data/services';
 import { STAGES, STAGE_ORDER, imagesByStage, stageCounts, beforeAfterPair, projectPath, projectSeo } from '@/lib/gallery';
 
 const ProjectPage = () => {
@@ -60,6 +61,16 @@ const ProjectPage = () => {
           </div>
           <h1 className="font-heading text-3xl md:text-5xl font-extrabold leading-tight max-w-4xl mb-4">{project.title}</h1>
           <p className="text-lg text-white/85 max-w-3xl leading-relaxed">{project.summary}</p>
+          {SERVICE_PAGES.some((s) => s.projects.includes(project.slug)) && (
+            <div className="flex flex-wrap items-center gap-2 mt-5 text-sm">
+              <span className="text-white/60">Services:</span>
+              {SERVICE_PAGES.filter((s) => s.projects.includes(project.slug)).map((s) => (
+                <Link key={s.slug} to={`/services/${s.slug}`} className="bg-white/10 hover:bg-white/20 px-3 py-1 rounded-full font-semibold">
+                  {s.name}
+                </Link>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 

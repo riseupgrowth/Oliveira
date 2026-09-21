@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { MapPin, Phone, Mail, Instagram, Clock } from 'lucide-react';
-import { BUSINESS, SERVICES, ALL_TOWNS } from '@/data/site';
+import { BUSINESS } from '@/data/site';
+import { SERVICE_PAGES } from '@/data/services';
+import { TOWNS } from '@/data/towns';
 
 const Footer = () => {
   const year = new Date().getFullYear();
@@ -31,7 +33,7 @@ const Footer = () => {
             <h3 className="font-heading text-lg font-bold mb-5">Explore</h3>
             <ul className="space-y-3 text-white/75">
               <li><Link to="/about" className="hover:text-brand-green-light transition-colors">About Us</Link></li>
-              <li><Link to="/#services" className="hover:text-brand-green-light transition-colors">Services</Link></li>
+              <li><Link to="/services" className="hover:text-brand-green-light transition-colors">Services</Link></li>
               <li><Link to="/gallery" className="hover:text-brand-green-light transition-colors">Gallery</Link></li>
               <li><Link to="/service-areas" className="hover:text-brand-green-light transition-colors">Service Areas</Link></li>
               <li><Link to="/contact" className="hover:text-brand-green-light transition-colors">Contact</Link></li>
@@ -41,12 +43,11 @@ const Footer = () => {
           <div className="md:col-span-3">
             <h3 className="font-heading text-lg font-bold mb-5">Services</h3>
             <ul className="space-y-3 text-white/75">
-              {SERVICES.map((s) => (
+              {SERVICE_PAGES.map((s) => (
                 <li key={s.slug}>
-                  <Link to="/#services" className="hover:text-brand-green-light transition-colors">{s.title}</Link>
+                  <Link to={`/services/${s.slug}`} className="hover:text-brand-green-light transition-colors">{s.name}</Link>
                 </li>
               ))}
-              <li><Link to="/#services" className="hover:text-brand-green-light transition-colors">Retaining Walls & Stonework</Link></li>
             </ul>
           </div>
 
@@ -75,7 +76,14 @@ const Footer = () => {
 
         <div className="border-t border-white/10 pt-8 mb-8">
           <p className="text-xs uppercase tracking-widest text-brand-green-light font-semibold mb-3">Proudly Serving the South Shore</p>
-          <p className="text-sm text-white/60 leading-relaxed">{ALL_TOWNS.join(' · ')}</p>
+          <p className="text-sm text-white/60 leading-relaxed">
+            {TOWNS.map((t, i) => (
+              <React.Fragment key={t.slug}>
+                {i > 0 && ' · '}
+                <Link to={`/service-areas/${t.slug}`} className="hover:text-brand-green-light transition-colors">{t.name}</Link>
+              </React.Fragment>
+            ))}
+          </p>
         </div>
 
         <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-center">

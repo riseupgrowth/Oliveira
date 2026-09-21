@@ -58,7 +58,7 @@ export const BUSINESS = {
 export const NAV_LINKS = [
   { name: 'Home', to: '/' },
   { name: 'About', to: '/about' },
-  { name: 'Services', to: '/#services' },
+  { name: 'Services', to: '/services' },
   { name: 'Gallery', to: '/gallery' },
   { name: 'Service Areas', to: '/service-areas' },
   { name: 'Contact', to: '/contact' },

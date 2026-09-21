@@ -26,6 +26,7 @@ const ROUTES = [
   { path: '/about', file: 'AboutPage.jsx' },
   { path: '/gallery', file: 'GalleryPage.jsx' },
   { path: '/service-areas', file: 'ServiceAreasPage.jsx' },
+  { path: '/services', file: 'ServicesPage.jsx' },
   { path: '/contact', file: 'ContactPage.jsx' },
   { path: '/privacy', file: 'PrivacyPolicyPage.jsx' },
   { path: '/terms', file: 'TermsPage.jsx' },
@@ -105,11 +106,33 @@ async function loadRenderer() {
   if (!fs.existsSync(entry)) return;
   ({ render: renderRoute } = await import(pathToFileURL(entry).href));
 }
+
+// Put the server-rendered markup in #root and the page's JSON-LD (from Helmet)
+// in <head>, replacing the static home-page JSON-LD so nothing is duplicated.
 const withApp = (html, url) => {
   if (!renderRoute) return html;
-  const { html: app } = renderRoute(url);
-  return html.replace('<div id="root"></div>', `<div id="root">${app}</div>`);
+  const { html: app, helmet } = renderRoute(url);
+  const scripts = helmet?.script?.toString() || '';
+  let out = html.replace('<div id="root"></div>', `<div id="root">${app}</div>`);
+  if (scripts) out = stripHomeOnly(out).replace('</head>', `${scripts}\n\t</head>`);
+  return out;
 };
+
+const load = (rel) => import(pathToFileURL(path.join(ROOT, rel)).href);
+
+function writePage(template, route, seo, noscript) {
+  const url = route === '/' ? `${SITE}/` : `${SITE}${route}`;
+  let html = replaceBetween(template, '<!--seo:start-->', '<!--seo:end-->', seoBlock({ ...seo, url }));
+  if (route !== '/') html = stripHomeOnly(html);
+  // With the page server-rendered into #root, the <noscript> fallback only adds a
+  // duplicate H1 — keep it only if SSR is unavailable.
+  html = replaceBetween(html, '<!--ns:start-->', '<!--ns:end-->', renderRoute ? '' : noscriptBlock(noscript || seo));
+  html = withApp(html, route);
+  const out = route === '/' ? path.join(DIST, 'index.html') : path.join(DIST, route.slice(1), 'index.html');
+  fs.mkdirSync(path.dirname(out), { recursive: true });
+  fs.writeFileSync(out, html);
+  return url;
+}
 
 async function main() {
   await loadRenderer();
@@ -118,21 +141,28 @@ async function main() {
   const template = fs.readFileSync(indexPath, 'utf8');
   const pages = [];
 
+  // Static pages: SEO values come from the <SEO /> props in each page file.
   for (const route of ROUTES) {
     const seo = readSeoProps(route.file);
-    const url = route.path === '/' ? `${SITE}/` : `${SITE}${route.path}`;
-    pages.push({ ...route, ...seo, url });
-    if (route.path === '/') {
-      // Home keeps its hand-written rich no-JS fallback; only refresh the head.
-      fs.writeFileSync(indexPath, withApp(replaceBetween(template, '<!--seo:start-->', '<!--seo:end-->', seoBlock({ ...seo, url })), '/'));
-      continue;
-    }
-    let html = replaceBetween(template, '<!--seo:start-->', '<!--seo:end-->', seoBlock({ ...seo, url }));
-    html = replaceBetween(html, '<!--ns:start-->', '<!--ns:end-->', noscriptBlock(seo));
-    html = withApp(stripHomeOnly(html), route.path);
-    const out = path.join(DIST, route.path.slice(1), 'index.html');
-    fs.mkdirSync(path.dirname(out), { recursive: true });
-    fs.writeFileSync(out, html);
+    const url = writePage(template, route.path, seo);
+    pages.push({ path: route.path, ...seo, url, section: 'Pages' });
+  }
+
+  // Data-driven pages.
+  const { PROJECTS } = await load('src/data/gallery.js');
+  const { projectSeo, projectPath } = await load('src/lib/gallery.js');
+  const { SERVICE_PAGES } = await load('src/data/services.js');
+  const { TOWNS } = await load('src/data/towns.js');
+  const { serviceSeo, servicePath, townSeo, townPath } = await load('src/lib/seo-pages.js');
+
+  const dynamic = [
+    ...SERVICE_PAGES.map((s) => ({ route: servicePath(s), seo: serviceSeo(s), section: 'Services', priority: '0.9', freq: 'monthly' })),
+    ...TOWNS.map((t) => ({ route: townPath(t), seo: townSeo(t), section: 'Service areas', priority: '0.8', freq: 'monthly' })),
+    ...PROJECTS.map((p) => ({ route: projectPath(p), seo: projectSeo(p), ns: { title: p.title, description: p.summary }, section: 'Projects', priority: '0.7', freq: 'yearly' })),
+  ];
+  for (const d of dynamic) {
+    const url = writePage(template, d.route, { image: '/images/site/hero.jpg', ...d.seo }, d.ns);
+    pages.push({ path: d.route, title: d.seo.title, description: d.seo.description, url, section: d.section, priority: d.priority, freq: d.freq });
   }
 
   // Real 404 page: Vercel serves dist/404.html with status 404 for unknown paths.
@@ -145,57 +175,36 @@ async function main() {
   notFound = replaceBetween(notFound, '<!--ns:start-->', '<!--ns:end-->', noscriptBlock({ title: 'Page Not Found', description: 'The page you were looking for could not be found.' }));
   fs.writeFileSync(path.join(DIST, '404.html'), withApp(stripHomeOnly(notFound), '/__not-found__'));
 
+  // Sitemap: stamp lastmod on the static entries and append every generated page.
+  const today = new Date().toISOString().slice(0, 10);
+  const sitemapPath = path.join(DIST, 'sitemap.xml');
+  if (fs.existsSync(sitemapPath)) {
+    let xml = fs
+      .readFileSync(sitemapPath, 'utf8')
+      .replace(/\s*<lastmod>[^<]*<\/lastmod>/g, '')
+      .replace(/(<loc>[^<]*<\/loc>)/g, `$1\n    <lastmod>${today}</lastmod>`);
+    const listed = new Set([...xml.matchAll(/<loc>([^<]*)<\/loc>/g)].map((m) => m[1]));
+    const extra = pages
+      .filter((p) => !listed.has(p.url))
+      .map((p) => `  <url>\n    <loc>${p.url}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>${p.freq || 'monthly'}</changefreq>\n    <priority>${p.priority || '0.8'}</priority>\n  </url>`)
+      .join('\n');
+    xml = xml.replace('</urlset>', `${extra}\n</urlset>`);
+    fs.writeFileSync(sitemapPath, xml);
+  }
+
   // llms.txt
+  const sections = ['Pages', 'Services', 'Service areas', 'Projects'];
   const llms = [
     '# Oliveira Landscaping',
     '',
     "> Family-owned landscaping, hardscape and construction company serving Boston's South Shore, Massachusetts. 50 Whitman Street, Bridgewater, MA 02324. Phone (774) 297-3349.",
     '',
-    '## Pages',
-    ...pages.map((p) => `- [${p.title}](${p.url}): ${p.description}`),
-    '',
+    ...sections.flatMap((sec) => [`## ${sec}`, ...pages.filter((p) => p.section === sec).map((p) => `- [${p.title}](${p.url}): ${p.description}`), '']),
   ].join('\n');
   fs.writeFileSync(path.join(DIST, 'llms.txt'), llms);
 
-  // Sitemap lastmod
-  const sitemapPath = path.join(DIST, 'sitemap.xml');
-  if (fs.existsSync(sitemapPath)) {
-    const today = new Date().toISOString().slice(0, 10);
-    const xml = fs
-      .readFileSync(sitemapPath, 'utf8')
-      .replace(/\s*<lastmod>[^<]*<\/lastmod>/g, '')
-      .replace(/(<loc>[^<]*<\/loc>)/g, `$1\n    <lastmod>${today}</lastmod>`);
-    fs.writeFileSync(sitemapPath, xml);
-  }
-
-  // One static page per gallery project (/gallery/<slug>), plus sitemap entries.
-  const { PROJECTS } = await import(pathToFileURL(path.join(ROOT, 'src/data/gallery.js')).href);
-  const { projectSeo, projectPath } = await import(pathToFileURL(path.join(ROOT, 'src/lib/gallery.js')).href);
-  for (const project of PROJECTS) {
-    const route = projectPath(project);
-    const seo = projectSeo(project);
-    const url = `${SITE}${route}`;
-    let html = replaceBetween(template, '<!--seo:start-->', '<!--seo:end-->', seoBlock({ ...seo, url }));
-    html = replaceBetween(html, '<!--ns:start-->', '<!--ns:end-->', noscriptBlock({ title: project.title, description: project.summary }));
-    html = withApp(stripHomeOnly(html), route);
-    const out = path.join(DIST, route.slice(1), 'index.html');
-    fs.mkdirSync(path.dirname(out), { recursive: true });
-    fs.writeFileSync(out, html);
-    pages.push({ path: route, title: seo.title, description: seo.description, url, project: true });
-  }
-  if (fs.existsSync(sitemapPath)) {
-    const today = new Date().toISOString().slice(0, 10);
-    const entries = pages
-      .filter((p) => p.project)
-      .map((p) => `  <url>\n    <loc>${p.url}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>yearly</changefreq>\n    <priority>0.7</priority>\n  </url>`)
-      .join('\n');
-    fs.writeFileSync(sitemapPath, fs.readFileSync(sitemapPath, 'utf8').replace('</urlset>', `${entries}\n</urlset>`));
-  }
-  const projectLines = pages.filter((p) => p.project).map((p) => `- [${p.title}](${p.url}): ${p.description}`);
-  fs.writeFileSync(path.join(DIST, 'llms.txt'), `${llms}\n## Projects\n${projectLines.join('\n')}\n`);
-
   fs.rmSync(path.join(ROOT, 'dist-ssr'), { recursive: true, force: true });
-  console.log(`prerender-routes: wrote ${pages.length} route pages${renderRoute ? ' (server-rendered)' : ''} + 404.html + llms.txt`);
+  console.log(`prerender-routes: wrote ${pages.length} pages${renderRoute ? ' (server-rendered)' : ''} + 404.html + sitemap + llms.txt`);
 }
 
 main().catch((err) => { console.error(err); process.exit(1); });

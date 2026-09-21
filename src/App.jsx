@@ -9,6 +9,9 @@ import HomePage from '@/pages/HomePage';
 import AboutPage from '@/pages/AboutPage';
 import GalleryPage from '@/pages/GalleryPage';
 import ProjectPage from '@/pages/ProjectPage';
+import ServicesPage from '@/pages/ServicesPage';
+import ServicePage from '@/pages/ServicePage';
+import TownPage from '@/pages/TownPage';
 import ServiceAreasPage from '@/pages/ServiceAreasPage';
 import ContactPage from '@/pages/ContactPage';
 import PrivacyPolicyPage from '@/pages/PrivacyPolicyPage';
@@ -27,6 +30,9 @@ function App() {
           <Route path="/gallery" element={<GalleryPage />} />
           <Route path="/gallery/:slug" element={<ProjectPage />} />
           <Route path="/service-areas" element={<ServiceAreasPage />} />
+          <Route path="/service-areas/:slug" element={<TownPage />} />
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/services/:slug" element={<ServicePage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/privacy" element={<PrivacyPolicyPage />} />
           <Route path="/terms" element={<TermsPage />} />

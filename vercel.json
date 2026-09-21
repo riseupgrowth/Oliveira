@@ -28,6 +28,18 @@
     {
       "source": "/gallery/:slug",
       "destination": "/gallery/:slug/index.html"
+    },
+    {
+      "source": "/services",
+      "destination": "/services/index.html"
+    },
+    {
+      "source": "/services/:slug",
+      "destination": "/services/:slug/index.html"
+    },
+    {
+      "source": "/service-areas/:slug",
+      "destination": "/service-areas/:slug/index.html"
     }
   ],
   "headers": [

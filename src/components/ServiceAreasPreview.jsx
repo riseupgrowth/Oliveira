@@ -42,12 +42,13 @@ const ServiceAreasPreview = () => {
             className="flex flex-wrap gap-2.5"
           >
             {ALL_TOWNS.map((town) => (
-              <span
+              <Link
                 key={town}
-                className="inline-flex items-center gap-1.5 bg-brand-cream text-brand-green-dark font-semibold text-sm px-4 py-2 rounded-full border border-brand-sand"
+                to={`/service-areas/${town.toLowerCase().replace(/ /g, '-')}`}
+                className="inline-flex items-center gap-1.5 bg-brand-cream text-brand-green-dark font-semibold text-sm px-4 py-2 rounded-full border border-brand-sand hover:bg-brand-sand transition-colors"
               >
                 <MapPin className="w-3.5 h-3.5 text-brand-green" /> {town}
-              </span>
+              </Link>
             ))}
           </motion.div>
         </div>

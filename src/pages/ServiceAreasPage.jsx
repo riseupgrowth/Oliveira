@@ -87,10 +87,14 @@ const ServiceAreasPage = () => {
               </div>
               <div className="p-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
                 {group.towns.map((town) => (
-                  <div key={town} className="flex items-center gap-2 text-gray-700">
+                  <Link
+                    key={town}
+                    to={`/service-areas/${town.toLowerCase().replace(/ /g, '-')}`}
+                    className="flex items-center gap-2 text-gray-700 hover:text-brand-green-dark group"
+                  >
                     <CheckCircle2 className="w-4 h-4 text-brand-green flex-shrink-0" />
-                    <span className="font-medium">{town}, MA</span>
-                  </div>
+                    <span className="font-medium group-hover:underline">{town}, MA</span>
+                  </Link>
                 ))}
               </div>
             </motion.div>

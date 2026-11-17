@@ -10,6 +10,9 @@ import StatsBand from '@/components/StatsBand';
 import ServiceAreasPreview from '@/components/ServiceAreasPreview';
 import ReviewsSection from '@/components/ReviewsSection';
 import ContactSection from '@/components/ContactSection';
+import FaqSection from '@/components/FaqSection';
+import { HOME_FAQ } from '@/data/faq';
+import { faqSchema } from '@/lib/seo-pages';
 
 const HomePage = () => {
   return (
@@ -20,6 +23,7 @@ const HomePage = () => {
         path="/"
         keywords="landscaping South Shore MA, landscapers near me, hardscape contractor Massachusetts, paver patio installation, retaining wall builders, lawn care South Shore, Oliveira Landscaping, mulch installation, Bridgewater landscaping"
         includeLocalBusiness
+        schema={[faqSchema(HOME_FAQ)]}
       />
       <HeroSection />
       <AboutSection />
@@ -30,6 +34,7 @@ const HomePage = () => {
       <StatsBand />
       <ServiceAreasPreview />
       <ReviewsSection />
+      <FaqSection items={HOME_FAQ} />
       <ContactSection />
     </>
   );

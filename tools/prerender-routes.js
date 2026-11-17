@@ -27,6 +27,7 @@ const ROUTES = [
   { path: '/gallery', file: 'GalleryPage.jsx' },
   { path: '/service-areas', file: 'ServiceAreasPage.jsx' },
   { path: '/services', file: 'ServicesPage.jsx' },
+  { path: '/blog', file: 'BlogPage.jsx' },
   { path: '/contact', file: 'ContactPage.jsx' },
   { path: '/privacy', file: 'PrivacyPolicyPage.jsx' },
   { path: '/terms', file: 'TermsPage.jsx' },
@@ -50,7 +51,7 @@ function readSeoProps(file) {
   };
 }
 
-function seoBlock({ title, description, url, image }) {
+function seoBlock({ title, description, url, image, type = 'website', published, modified }) {
   const img = image.startsWith('http') ? image : `${SITE}${image}`;
   const t = esc(title);
   const d = esc(description);
@@ -58,7 +59,9 @@ function seoBlock({ title, description, url, image }) {
 		<title>${t}</title>
 		<meta data-rh="true" name="description" content="${d}" />
 		<link data-rh="true" rel="canonical" href="${url}" />
-		<meta data-rh="true" property="og:type" content="website" />
+		<meta data-rh="true" property="og:type" content="${type}" />${published ? `
+		<meta data-rh="true" property="article:published_time" content="${published}" />` : ''}${modified ? `
+		<meta data-rh="true" property="article:modified_time" content="${modified}" />` : ''}
 		<meta data-rh="true" property="og:site_name" content="Oliveira Landscaping" />
 		<meta data-rh="true" property="og:title" content="${t}" />
 		<meta data-rh="true" property="og:description" content="${d}" />
@@ -153,11 +156,13 @@ async function main() {
   const { projectSeo, projectPath } = await load('src/lib/gallery.js');
   const { SERVICE_PAGES } = await load('src/data/services.js');
   const { TOWNS } = await load('src/data/towns.js');
-  const { serviceSeo, servicePath, townSeo, townPath } = await load('src/lib/seo-pages.js');
+  const { serviceSeo, servicePath, townSeo, townPath, blogSeo, blogPath } = await load('src/lib/seo-pages.js');
+  const { BLOG_POSTS, plainText } = await load('src/data/blog.js');
 
   const dynamic = [
     ...SERVICE_PAGES.map((s) => ({ route: servicePath(s), seo: serviceSeo(s), section: 'Services', priority: '0.9', freq: 'monthly' })),
     ...TOWNS.map((t) => ({ route: townPath(t), seo: townSeo(t), section: 'Service areas', priority: '0.8', freq: 'monthly' })),
+    ...BLOG_POSTS.map((p) => ({ route: blogPath(p), seo: blogSeo(p), ns: { title: p.title, description: p.quickAnswer }, section: 'Blog', priority: '0.7', freq: 'monthly' })),
     ...PROJECTS.map((p) => ({ route: projectPath(p), seo: projectSeo(p), ns: { title: p.title, description: p.summary }, section: 'Projects', priority: '0.7', freq: 'yearly' })),
   ];
   for (const d of dynamic) {
@@ -192,16 +197,54 @@ async function main() {
     fs.writeFileSync(sitemapPath, xml);
   }
 
-  // llms.txt
-  const sections = ['Pages', 'Services', 'Service areas', 'Projects'];
+  // llms.txt (index for AI assistants) + llms-full.txt (business facts + full blog text).
+  const { BUSINESS_FACTS } = await load('tools/llms-facts.js');
+  const NL = String.fromCharCode(10);
+  const sections = ['Pages', 'Services', 'Blog', 'Service areas', 'Projects'];
   const llms = [
     '# Oliveira Landscaping',
     '',
-    "> Family-owned landscaping, hardscape and construction company serving Boston's South Shore, Massachusetts. 50 Whitman Street, Bridgewater, MA 02324. Phone (774) 297-3349.",
+    "> Family-owned, licensed and insured landscaping and hardscape company based in Bridgewater, MA, serving 30+ towns on Boston's South Shore. 50 Whitman Street, Bridgewater, MA 02324. Phone (774) 297-3349.",
+    '',
+    BUSINESS_FACTS,
+    '',
+    `Full text of every guide: ${SITE}/llms-full.txt`,
     '',
     ...sections.flatMap((sec) => [`## ${sec}`, ...pages.filter((p) => p.section === sec).map((p) => `- [${p.title}](${p.url}): ${p.description}`), '']),
-  ].join('\n');
+  ].join(NL);
   fs.writeFileSync(path.join(DIST, 'llms.txt'), llms);
+
+  const block = (b) => {
+    if (b.type === 'h2') return `${NL}## ${b.text}${NL}`;
+    if (b.type === 'h3') return `${NL}### ${b.text}${NL}`;
+    if (b.type === 'ul' || b.type === 'ol') return b.items.map((it, i) => `${b.type === 'ol' ? `${i + 1}.` : '-'} ${plainText(it)}`).join(NL) + NL;
+    if (b.type === 'table') return [`| ${b.head.join(' | ')} |`, `| ${b.head.map(() => '---').join(' | ')} |`, ...b.rows.map((row) => `| ${row.join(' | ')} |`)].join(NL) + NL;
+    if (b.type === 'tip') return `> ${plainText(b.text)}${NL}`;
+    return `${plainText(b.text)}${NL}`;
+  };
+  const full = [
+    '# Oliveira Landscaping — full reference',
+    '',
+    BUSINESS_FACTS,
+    '',
+    ...BLOG_POSTS.flatMap((p) => [
+      '---',
+      '',
+      `# ${p.title}`,
+      '',
+      `Source: ${SITE}${blogPath(p)} · Published ${p.date} · Updated ${p.updated || p.date} · By Oliveira Landscaping`,
+      '',
+      `**Quick answer:** ${p.quickAnswer}`,
+      '',
+      'Key takeaways:',
+      ...p.takeaways.map((t) => `- ${t}`),
+      ...p.body.map(block),
+      '## Frequently asked questions',
+      '',
+      ...p.faq.flatMap(([q, a]) => [`**${q}**`, a, '']),
+    ]),
+  ].join(NL);
+  fs.writeFileSync(path.join(DIST, 'llms-full.txt'), full);
 
   fs.rmSync(path.join(ROOT, 'dist-ssr'), { recursive: true, force: true });
   console.log(`prerender-routes: wrote ${pages.length} pages${renderRoute ? ' (server-rendered)' : ''} + 404.html + sitemap + llms.txt`);

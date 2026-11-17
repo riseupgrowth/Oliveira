@@ -9,6 +9,8 @@ import NotFoundPage from '@/pages/NotFoundPage';
 import { SERVICE_BY_SLUG } from '@/data/services';
 import { TOWNS } from '@/data/towns';
 import { PROJECTS } from '@/data/gallery';
+import { BLOG_POSTS } from '@/data/blog';
+import PostCard from '@/components/blog/PostCard';
 import { BUSINESS } from '@/data/site';
 import { serviceSeo, serviceSchema, servicePath, townPath } from '@/lib/seo-pages';
 
@@ -20,6 +22,7 @@ const ServicePage = () => {
   const seo = serviceSeo(service);
   const projects = service.projects.map((s) => PROJECTS.find((p) => p.slug === s)).filter(Boolean);
   const heroImage = projects[0]?.cover.replace('-thumb.jpg', '.jpg') || '/images/site/hero.jpg';
+  const guides = BLOG_POSTS.filter((p) => p.services.includes(service.slug)).slice(0, 3);
   const related = service.related.map((s) => SERVICE_BY_SLUG[s]).filter(Boolean);
 
   return (
@@ -143,6 +146,22 @@ const ServicePage = () => {
           </div>
         </div>
       </section>
+
+      {guides.length > 0 && (
+        <section className="py-16 bg-white">
+          <div className="container-tight">
+            <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-8">
+              <h2 className="font-heading text-2xl md:text-3xl font-bold text-brand-green-dark">{service.name} guides &amp; tips</h2>
+              <Link to="/blog" className="text-brand-green font-semibold inline-flex items-center gap-1 hover:gap-2 transition-all">
+                All articles <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
+              {guides.map((p) => <PostCard key={p.slug} post={p} />)}
+            </div>
+          </div>
+        </section>
+      )}
 
       <CallToAction
         title={`Ready to Start Your ${service.name} Project?`}

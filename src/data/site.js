@@ -61,6 +61,7 @@ export const NAV_LINKS = [
   { name: 'Services', to: '/services' },
   { name: 'Gallery', to: '/gallery' },
   { name: 'Service Areas', to: '/service-areas' },
+  { name: 'Blog', to: '/blog' },
   { name: 'Contact', to: '/contact' },
 ];
 

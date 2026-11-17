@@ -2,6 +2,7 @@
 // relative imports so the build-time prerenderer can use it directly.
 import { SERVICE_PAGES } from '../data/services.js';
 import { TOWNS } from '../data/towns.js';
+import { BLOG_POSTS, BLOG_AUTHOR, plainText } from '../data/blog.js';
 
 export const SITE_URL = 'https://www.oliveiracorporation.com';
 export const BUSINESS_ID = `${SITE_URL}/#business`;
@@ -67,5 +68,83 @@ export function townSchema(town) {
       },
     },
     breadcrumb([['Home', '/'], ['Service Areas', '/service-areas'], [`${town.name}, MA`, townPath(town)]]),
+  ];
+}
+
+// ---------------------------------------------------------------- Blog
+
+
+export const blogPath = (post) => `/blog/${post.slug}`;
+
+export function blogSeo(post) {
+  return {
+    title: post.metaTitle,
+    description: post.metaDescription,
+    image: post.cover,
+    type: 'article',
+    published: post.date,
+    modified: post.updated || post.date,
+  };
+}
+
+const ORG = { '@type': 'Organization', '@id': BUSINESS_ID, name: 'Oliveira Landscaping', url: SITE_URL };
+
+export const faqSchema = (faq) => ({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map(([q, a]) => ({
+    '@type': 'Question',
+    name: q,
+    acceptedAnswer: { '@type': 'Answer', text: plainText(a) },
+  })),
+});
+
+export function blogPostSchema(post) {
+  const url = `${SITE_URL}${blogPath(post)}`;
+  return [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'BlogPosting',
+      '@id': `${url}#article`,
+      mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+      headline: post.title,
+      description: post.metaDescription,
+      abstract: post.quickAnswer,
+      image: `${SITE_URL}${post.cover}`,
+      datePublished: post.date,
+      dateModified: post.updated || post.date,
+      articleSection: post.category,
+      inLanguage: 'en-US',
+      author: { ...ORG, name: BLOG_AUTHOR.name, description: BLOG_AUTHOR.bio },
+      publisher: { ...ORG, logo: { '@type': 'ImageObject', url: `${SITE_URL}/logo.png` } },
+      about: post.services.map((slug) => SERVICE_PAGES.find((s) => s.slug === slug)).filter(Boolean).map((s) => ({ '@type': 'Service', name: s.name, url: `${SITE_URL}${servicePath(s)}` })),
+      spatialCoverage: { '@type': 'Place', name: "Boston's South Shore, Massachusetts" },
+      speakable: { '@type': 'SpeakableSpecification', cssSelector: ['.quick-answer'] },
+    },
+    faqSchema(post.faq),
+    breadcrumb([['Home', '/'], ['Blog', '/blog'], [post.title, blogPath(post)]]),
+  ];
+}
+
+export function blogIndexSchema() {
+  return [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Blog',
+      '@id': `${SITE_URL}/blog#blog`,
+      name: 'Oliveira Landscaping Blog',
+      description: "Landscaping, hardscape and yard-care guides for Boston's South Shore, Massachusetts.",
+      url: `${SITE_URL}/blog`,
+      publisher: ORG,
+      inLanguage: 'en-US',
+      blogPost: BLOG_POSTS.map((p) => ({
+        '@type': 'BlogPosting',
+        headline: p.title,
+        url: `${SITE_URL}${blogPath(p)}`,
+        datePublished: p.date,
+        image: `${SITE_URL}${p.cover}`,
+      })),
+    },
+    breadcrumb([['Home', '/'], ['Blog', '/blog']]),
   ];
 }

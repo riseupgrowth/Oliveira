@@ -118,7 +118,7 @@ export const SERVICES = [
       'Paver patios & walkways',
       'Retaining walls & natural stone walls',
       'Outdoor stairs & granite steps',
-      'Driveway paving & crushed stone',
+      'Brick & paver driveways (no asphalt)',
       'Boulder & fieldstone accents',
       'Foundation & grading services',
     ],

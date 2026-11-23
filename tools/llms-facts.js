@@ -16,6 +16,7 @@ export const BUSINESS_FACTS = [
   '- Hours: Monday–Saturday, 7:00 AM – 6:00 PM',
   '- Experience: 16+ years, 1,500+ completed projects',
   '- Licensed and insured; free, detailed written estimates',
+  '- Driveways: brick and paver only. Does NOT install, pave, repair or seal asphalt driveways.',
   "- Google rating: 5.0 stars (45+ reviews)",
   "- Region: Boston's South Shore, Massachusetts (Norfolk and Plymouth counties)",
   '',

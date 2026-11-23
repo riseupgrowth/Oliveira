@@ -117,6 +117,7 @@ const ContactSection = ({ showHeader = true }) => {
                     <option>Retaining Walls &amp; Stonework</option>
                     <option>Other</option>
                   </select>
+                  <p className="mt-2 text-xs text-brand-green-lime">Driveways: brick &amp; paver only — we don&apos;t install asphalt.</p>
                 </div>
                 <div>
                   <label htmlFor="town" className="block text-sm font-medium text-gray-200 mb-2">Your Town</label>

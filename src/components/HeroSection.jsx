@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { ArrowDown, Star, ShieldCheck } from 'lucide-react';
+import { ArrowDown, Star, ShieldCheck, Ban } from 'lucide-react';
 
 const HeroSection = () => {
   const scrollToServices = () => {
@@ -80,6 +80,7 @@ const HeroSection = () => {
           <span className="flex items-center gap-2"><ShieldCheck className="w-4 h-4 text-brand-green-light" /> Licensed &amp; Insured</span>
           <span className="flex items-center gap-2"><Star className="w-4 h-4 text-brand-green-light" /> 16+ Years Experience</span>
           <span className="flex items-center gap-2"><ShieldCheck className="w-4 h-4 text-brand-green-light" /> Free Detailed Estimates</span>
+          <span className="flex items-center gap-2"><Ban className="w-4 h-4 text-brand-green-light" /> Brick &amp; Paver Driveways — No Asphalt</span>
         </motion.div>
       </div>
 
@@ -88,7 +89,7 @@ const HeroSection = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.5, delay: 1, repeat: Infinity, repeatType: 'reverse', ease: 'easeInOut' }}
-        className="absolute bottom-8 z-20 flex flex-col items-center text-white/80 hover:text-white transition-colors duration-300 group"
+        className="absolute bottom-8 z-20 hidden md:flex flex-col items-center text-white/80 hover:text-white transition-colors duration-300 group"
         aria-label="Explore our services"
       >
         <span className="mb-1 text-xs font-semibold tracking-widest uppercase">Explore</span>

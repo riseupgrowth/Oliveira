@@ -48,7 +48,7 @@ const Header = () => {
         <div className="container-tight flex justify-between items-center h-9 text-xs text-white/90">
           <span className="flex items-center gap-2">
             <MapPin className="w-3.5 h-3.5 text-brand-green-light" />
-            Serving Boston&apos;s South Shore · Licensed &amp; Insured · Brick &amp; paver driveways only — no asphalt
+            Serving Boston&apos;s South Shore · Licensed &amp; Insured
           </span>
           <a href={BUSINESS.phoneHref} className="flex items-center gap-2 font-semibold hover:text-brand-green-lime transition-colors">
             <Phone className="w-3.5 h-3.5 text-brand-green-light" />

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { ChevronRight, CheckCircle2, ArrowRight, Phone, MapPin, AlertTriangle } from 'lucide-react';
+import { ChevronRight, CheckCircle2, ArrowRight, Phone, MapPin } from 'lucide-react';
 import SEO from '@/components/SEO';
 import CallToAction from '@/components/CallToAction';
 import ProjectCard from '@/components/gallery/ProjectCard';
@@ -46,15 +46,6 @@ const ServicePage = () => {
           <span className="inline-block text-xs font-bold uppercase tracking-widest text-brand-green-lime mb-3">{service.group}</span>
           <h1 className="font-heading text-3xl md:text-5xl font-extrabold leading-tight max-w-4xl mb-5">{service.headline}</h1>
           <p className="text-lg text-white/90 max-w-3xl leading-relaxed mb-8">{service.intro[0]}</p>
-          {service.notice && (
-            <div role="note" className="flex items-start gap-3 max-w-3xl bg-white text-gray-800 rounded-2xl border-l-4 border-amber-500 p-5 mb-8 shadow-lg">
-              <AlertTriangle className="w-6 h-6 text-amber-500 shrink-0 mt-0.5" aria-hidden="true" />
-              <div>
-                <p className="font-heading font-bold text-brand-green-dark text-lg">{service.notice.title}</p>
-                <p className="text-gray-700 leading-relaxed">{service.notice.text}</p>
-              </div>
-            </div>
-          )}
           <div className="flex flex-col sm:flex-row gap-3">
             <Link to="/contact"><Button className="btn-custom-green text-base w-full sm:w-auto">Get a Free Estimate</Button></Link>
             <a href={BUSINESS.phoneHref}><Button className="btn-outline-light text-base w-full sm:w-auto"><Phone className="w-4 h-4" /> {BUSINESS.phoneDisplay}</Button></a>

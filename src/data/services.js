@@ -7,15 +7,10 @@ export const SERVICE_PAGES = [
     slug: 'paver-patios-walkways',
     name: 'Paver Patios & Walkways',
     group: 'Hardscape & Masonry',
-    headline: 'Paver Patios, Walkways & Driveways on the South Shore',
-    metaTitle: 'Paver Patios, Walkways & Driveways | South Shore MA | Oliveira',
+    headline: 'Paver Patios & Walkways on the South Shore',
+    metaTitle: 'Paver Patios & Walkways | South Shore MA | Oliveira Landscaping',
     metaDescription:
-      'Brick and paver patios, walkways and driveways on a compacted base. Brick & paver only, no asphalt. Serving the South Shore, MA. Free estimates.',
-    // Shown at the top of the page so visitors know before requesting an estimate.
-    notice: {
-      title: 'Driveways: Brick & Paver only — no asphalt',
-      text: 'We build driveways, aprons and borders in brick and interlocking pavers. We do not install, pave, repair or seal asphalt driveways — for an asphalt driveway, please contact a paving company.',
-    },
+      'Paver patios, walkways, landings and driveway aprons built on a compacted base by Oliveira Landscaping. Serving the South Shore, MA. Free estimates.',
     intro: [
       'A paver walkway or patio is one of the most visible upgrades you can make to a property. It sets the first impression at the front door and turns an unused corner of the yard into a place you actually want to spend time.',
       'We lay out every job around how you move through your property, excavate to firm ground, build a compacted gravel base and set interlocking pavers with clean borders — straight runs, sweeping curves, steps, landings and driveway aprons.',
@@ -25,7 +20,7 @@ export const SERVICE_PAGES = [
       'Backyard paver patios',
       'Curved paths and garden walks',
       'Paver and granite steps',
-      'Brick & paver driveways, aprons and borders (no asphalt)',
+      'Driveway aprons and borders',
       'Soldier-course and contrasting borders',
       'Granite curbing and edging',
       'Tie-ins with stone walls and planting beds',
